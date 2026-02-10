@@ -10,14 +10,18 @@ import ItemList from "./pages/ItemList";
 import Giohang from "./pages/Giohang";
 import UserTable from "./test/UserTable";
 import ItemTable from "./test/ItemTable";
-const App=() => {
+import KhuyenMai from "./pages/KhuyenMai";
+import TinTuc from "./pages/TinTuc";
+import LienHe from "./pages/LienHe";
+import KiemTraDonHang from "./pages/KiemTraDonHang";
+const App = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
   return (
     <Router>
       <Routes>
-      <Route
+        <Route
           path="/"
           element={
             currentUser ? (
@@ -34,11 +38,15 @@ const App=() => {
         <Route path="/Usertable" element={<UserTable />} />
         <Route path="/Itemtable" element={<ItemTable />} />
         <Route path="/Giohang" element={<Giohang />} />
+        <Route path="/KhuyenMai" element={<KhuyenMai />} />
+        <Route path="/TinTuc" element={<TinTuc />} />
+        <Route path="/LienHe" element={<LienHe />} />
+        <Route path="/KiemTraDonHang" element={<KiemTraDonHang />} />
       </Routes>
     </Router>
-   );
- }
- 
- export default App;
+  );
+}
+
+export default App;
 
 

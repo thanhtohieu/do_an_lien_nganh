@@ -1,24 +1,30 @@
-.Quan{
+.Quan {
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.maincuoi{
+
+.maincuoi {
   background-color: #F0F3F7;
 }
+
 .thanhtieude1 {
-  width: 1180px;
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
   height: 52px;
   background-color: white;
   border-radius: 5px;
   display: flex;
 }
+
 .thanhdoc {
   border-right: 1px solid #f0f0f0;
   height: 20px;
   margin: 15px 10px;
 }
+
 .tentieude1 {
   text-decoration: none;
   font-family: arial;
@@ -28,10 +34,12 @@
   margin-left: 15px;
   margin-top: 12px;
 }
+
 .menu1-1 a {
   text-decoration: none;
   display: flex;
 }
+
 .menucon1-1 {
   font-family: arial;
   font-weight: bold;
@@ -40,9 +48,11 @@
   margin-left: 20px;
   margin-top: 20px;
 }
+
 .xemthem1 {
   margin-top: 15px;
 }
+
 .xemthem1 a {
   font-family: arial;
   font-weight: bold;
@@ -51,141 +61,173 @@
   margin-left: 650px;
   text-decoration: none;
 }
-.khungsp1{
-  width: 1180px;
+
+.khungsp1 {
+  max-width: 1400px;
+  width: 90%;
+  margin: 7px auto 0;
   height: 127px;
-  margin-top: 7px;
   display: flex;
-  transition-duration: 0.3s;  
+  transition-duration: 0.3s;
+  justify-content: space-between;
 }
-.khungsp1 :hover{
-    transform: scale(1.03);
+
+.khungsp1 :hover {
+  transform: scale(1.03);
 }
-.sp1{
-  width: 290px;
+
+.sp1 {
+  flex: 1;
   height: 127px;
   background-color: white;
   display: flex;
   margin-right: 7px;
 }
-.anhsp1{
+
+.anhsp1 {
   padding-left: 20px;
   padding-top: 20px;
 }
-.anhsp1 img{
+
+.anhsp1 img {
   width: 80px;
   height: 80px;
 }
-.noidungsp1{
+
+.noidungsp1 {
   padding: 15px 25px 10px;
 }
-.noidungsp1 a{
+
+.noidungsp1 a {
   text-decoration: none;
 }
-.tensp1{
+
+.tensp1 {
   font-family: arial;
   font-weight: bold;
   font-size: 14px;
   color: black;
 }
-.danhgiasp1{
+
+.danhgiasp1 {
   font-family: arial;
   font-size: 10px;
   color: black;
   padding: 8px 0px;
 }
-.giakmsp1{
+
+.giakmsp1 {
   font-family: arial;
   font-weight: bold;
   font-size: 15px;
   color: red;
 }
-.giasp1{
+
+.giasp1 {
   font-family: arial;
   font-size: 10px;
   color: #999999;
-  text-decoration:line-through solid #999999;
+  text-decoration: line-through solid #999999;
 }
-.sp3{
-  width: 290px;
+
+.sp3 {
+  flex: 1;
   height: 127px;
   background-color: white;
   display: flex;
 }
-.anhsp3{
+
+.anhsp3 {
   padding-left: 20px;
   padding-top: 20px;
 }
-.anhsp3 img{
+
+.anhsp3 img {
   width: 80px;
   height: 80px;
 }
-.noidungsp3{
+
+.noidungsp3 {
   padding-top: 15px;
   padding-left: 25px;
   padding-bottom: 15px;
 }
-.noidungsp3 a{
+
+.noidungsp3 a {
   text-decoration: none;
 }
-.tensp3{
+
+.tensp3 {
   font-family: arial;
   font-weight: bold;
   font-size: 14px;
   color: black;
 }
-.danhgiasp3{
+
+.danhgiasp3 {
   font-family: arial;
   font-size: 10px;
   color: black;
   padding: 8px 0px;
 }
-.giakmsp3{
+
+.giakmsp3 {
   font-family: arial;
   font-weight: bold;
   font-size: 15px;
   color: red;
 }
-.giasp3{
+
+.giasp3 {
   font-family: arial;
   font-size: 10px;
   color: #999999;
-  text-decoration:line-through solid #999999;
+  text-decoration: line-through solid #999999;
 }
-.logocacnhanhang{
+
+.logocacnhanhang {
   display: flex;
-  width: 1180px;
-  margin-top: 50px;
-  transition-duration: 0.3s;  
+  max-width: 1400px;
+  width: 90%;
+  margin: 50px auto 0;
+  transition-duration: 0.3s;
+  justify-content: space-between;
 }
-.logocacnhanhang :hover{
-    transform: scale(1.03);
+
+.logocacnhanhang :hover {
+  transform: scale(1.03);
 }
-.nhanhang{
+
+.nhanhang {
   width: 166px;
   height: 100px;
 }
-.thanhtieude2{
-  width: 1180px;
+
+.thanhtieude2 {
+  max-width: 1400px;
+  width: 90%;
+  margin: 30px auto 0;
   height: 52px;
   background-color: white;
   border-radius: 5px;
   display: flex;
-  margin-top: 30px;
 }
-.tentieude2{
+
+.tentieude2 {
   font-family: arial;
   font-weight: bold;
   font-size: 22px;
   text-decoration: none;
-  color:#094eff;
+  color: #094eff;
   margin-left: 15px;
   margin-top: 12px;
 }
+
 .menu2-1 a {
   text-decoration: none;
   display: flex;
 }
+
 .menucon2-1 {
   font-family: arial;
   font-weight: bold;
@@ -194,9 +236,11 @@
   margin-left: 20px;
   margin-top: 20px;
 }
+
 .xemthem2 {
   margin-top: 15px;
 }
+
 .xemthem2 a {
   font-family: arial;
   font-weight: bold;
@@ -205,41 +249,50 @@
   margin-left: 750px;
   text-decoration: none;
 }
-.bantincongnghe{
-  width: 1180px;
+
+.bantincongnghe {
+  max-width: 1400px;
+  width: 90%;
+  margin: 7px auto 0;
   height: 350px;
-  margin-top: 7px;
   display: flex;
+  justify-content: space-between;
 }
-.bt1{
-  width: 290px;
+
+.bt1 {
+  flex: 1;
   height: 350px;
   background-color: white;
   margin-right: 7px;
 }
-.anh1{
+
+.anh1 {
   height: 156px;
   width: 290px;
 }
-.anh1 img{
+
+.anh1 img {
   margin-left: 10px;
   height: 150px;
   width: 260px;
   margin-top: 6px;
-  transition-duration: 0.3s;  
-}
-.anh1 img:hover{
-    transform: scale(1.03);
+  transition-duration: 0.3s;
 }
 
-.noidung1{
+.anh1 img:hover {
+  transform: scale(1.03);
+}
+
+.noidung1 {
   margin-top: 10px;
   width: 290px;
 }
-.noidung1 a{
+
+.noidung1 a {
   text-decoration: none;
 }
-.tieudend1{
+
+.tieudend1 {
   font-family: arial;
   font-weight: bold;
   font-size: 16px;
@@ -247,28 +300,33 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-.noidungchinh1{
+
+.noidungchinh1 {
   font-family: arial;
   font-size: 14px;
   color: #999999;
   margin: 15px 10px;
 }
-.thanhngang{
+
+.thanhngang {
   width: 270px;
   margin-left: 10px;
   border-bottom: 1px solid #f0f0f0;
 }
-.cuoibt1{
+
+.cuoibt1 {
   display: flex;
 }
-.thoigiandang1{
+
+.thoigiandang1 {
   font-family: arial;
   font-size: 12px;
   color: #999999;
   margin-top: 20px;
   margin-left: 10px;
 }
-.phanxemthem1{
+
+.phanxemthem1 {
   margin-left: 100px;
   margin-top: 10px;
   border: 1px solid red;
@@ -277,17 +335,24 @@
   height: 30px;
 
 }
-.phanxemthem1 a{
+
+.phanxemthem1 a {
   text-decoration: none;
 }
-.xemchitiet1{
+
+.xemchitiet1 {
   font-family: arial;
   font-size: 15px;
   color: red;
   margin: 5px 10px;
 }
+
 /* Reset styles */
-body, h1, h2, p, button {
+body,
+h1,
+h2,
+p,
+button {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -308,7 +373,8 @@ body, h1, h2, p, button {
 }
 
 .cart-overlay.hidden {
-  display: none; /* Ẩn overlay */
+  display: none;
+  /* Ẩn overlay */
 }
 
 /* Giao diện giỏ hàng */

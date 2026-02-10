@@ -1,13 +1,15 @@
 import axios from "axios";
 
-export const userAPI  =axios.create({
-    baseURL: 'http://localhost:5000/user',
-    headers: {
-        "Content-Type": "application/json",
-      },
+const url = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
+export const userAPI = axios.create({
+  baseURL: url + '/user',
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 export const itemAPI = axios.create({
-  baseURL: 'http://localhost:5000/items',
+  baseURL: url + '/items',
   headers: {
     "Content-Type": "application/json",
   },

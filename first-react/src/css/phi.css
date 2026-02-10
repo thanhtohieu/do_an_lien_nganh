@@ -1,4 +1,4 @@
-.fulltrang{
+.fulltrang {
     width: 100%;
     height: 1840px;
     background-color: #F0F3F7;
@@ -7,47 +7,51 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-      
+
 }
-.head{
-    width: 1100px;
+
+.head {
+    max-width: 1400px;
+    width: 90%;
     height: 1840px;
     background-color: #F0F3F7;
-   
-    
 }
-.trang{
+
+.trang {
     padding-top: 50px;
-    width: 1100px;
+    width: 100%;
     height: 980px;
     display: flex;
-    
-   
+    justify-content: space-between;
 }
-.trai{
+
+.trai {
     width: 360px;
     height: 1000px;
 }
-.trai1{
+
+.trai1 {
     width: 355px;
     height: 220px;
     background-color: #EAEDF1;
     border-radius: 8px;
     z-index: 2;
 }
-.trai1 img{
+
+.trai1 img {
     width: 355px;
     height: 217px;
     border-radius: 8px;
     z-index: 1;
     margin-left: 0px;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.trai1 img:hover{
+
+.trai1 img:hover {
     transform: scale(1.05);
 }
 
-.trai2{
+.trai2 {
     width: 345px;
     height: 320px;
     margin-top: 50px;
@@ -55,180 +59,205 @@
     margin-left: 2px;
     display: flex;
 
-    
+
 }
-.trai2-1{
+
+.trai2-1 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.trai2-1:hover{
+
+.trai2-1:hover {
     transform: scale(1.05);
 }
 
 
-.trai2-1 img{
+.trai2-1 img {
     width: 150px;
     height: 150px;
     border-radius: 3px;
 }
+
 .txttrai2-1 {
     font-size: 10px;
     margin-left: 5px;
 }
-.txttrai2-1 a{
+
+.txttrai2-1 a {
     font-family: Arial;
     font-weight: bold;
     text-decoration: none;
     line-height: 15px;
 }
-.gia img{
+
+.gia img {
     width: 150px;
     height: 120px;
     padding-top: 7px;
     padding-left: 3px;
 }
-.trai2-2{
+
+.trai2-2 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     margin-left: 7px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.trai2-2:hover{
+
+.trai2-2:hover {
     transform: scale(1.05);
 }
 
-.trai2-2 img{
+.trai2-2 img {
     width: 150px;
     height: 150px;
-    padding-left:5px ;
+    padding-left: 5px;
     border-radius: 3px;
-   
+
 }
-.gia2 img{
+
+.gia2 img {
     width: 155px;
     height: 120px;
     padding-top: 8px;
 }
+
 .txttrai2-2 {
     font-size: 10px;
     margin-left: 5px;
 }
-.txttrai2-2 a{
+
+.txttrai2-2 a {
     font-family: Arial;
     font-weight: bold;
     text-decoration: none;
     line-height: 15px;
 }
-.trai3{
+
+.trai3 {
     width: 345px;
     height: 320px;
     margin-top: 7px;
     border-radius: 8px;
     margin-left: 2px;
-    display: flex;  
+    display: flex;
 }
-.trai3-1{
+
+.trai3-1 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.trai3-1:hover{
+
+.trai3-1:hover {
     transform: scale(1.05);
 }
 
-.trai3-1 img{
+.trai3-1 img {
     width: 150px;
     height: 150px;
-    padding-left:5px ;
+    padding-left: 5px;
     border-radius: 3px;
-   
+
 }
-.gia3 img{
+
+.gia3 img {
     width: 155px;
     height: 100px;
     padding-top: 7px;
 }
+
 .txttrai3-1 {
     font-size: 10px;
     margin-left: 5px;
 }
-.txttrai3-1 a{
+
+.txttrai3-1 a {
     font-family: Arial;
     font-weight: bold;
     text-decoration: none;
     line-height: 15px;
 }
-.trai3-2{
+
+.trai3-2 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     border: 1px solid white;
     background-color: white;
     margin-left: 7px;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.trai3-2:hover{
+
+.trai3-2:hover {
     transform: scale(1.05);
 }
 
-.trai3-2 img{
+.trai3-2 img {
     width: 150px;
     height: 150px;
-    padding-left:5px ;
+    padding-left: 5px;
     border-radius: 3px;
-   
+
 }
-.gia4 img{
+
+.gia4 img {
     width: 155px;
     height: 120px;
     padding-top: 7px;
 }
+
 .txttrai3-2 {
     font-size: 10px;
     margin-left: 5px;
 }
-.txttrai3-2 a{
+
+.txttrai3-2 a {
     font-family: Arial;
     font-weight: bold;
     text-decoration: none;
     line-height: 15px;
 }
 
-.giua{
+.giua {
     width: 360px;
     height: 650px;
-    padding-left: 10px;   
+    padding-left: 10px;
 }
-.giua1{
+
+.giua1 {
     width: 355px;
     height: 220px;
     background-color: #EAEDF1;
     border-radius: 8px;
     z-index: 2;
 }
-.giua1 img{
+
+.giua1 img {
     width: 355px;
     height: 217px;
     display: flex;
     border-radius: 8px;
     z-index: 1;
     margin-left: 0px;
-    transition-duration: 0.3s; 
+    transition-duration: 0.3s;
 }
-.giua1 img:hover{
+
+.giua1 img:hover {
     transform: scale(1.05);
 }
-.giua2{
+
+.giua2 {
     width: 345px;
     height: 647px;
     margin-top: 50px;
@@ -236,32 +265,36 @@
     margin-left: 2px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.giua2:hover{
+
+.giua2:hover {
     transform: scale(1.05);
 }
 
-.giua2 a{
+.giua2 a {
     text-decoration: none;
     font-family: Arial;
     font-weight: bold;
     font-size: 12px;
     margin-left: 30px;
 }
-.giua2 img{
+
+.giua2 img {
     width: 325px;
     height: 330px;
     margin-left: 10px;
 
 }
-.gialoa img{
+
+.gialoa img {
     width: 310px;
     height: 120px;
     padding-top: 30px;
     margin-left: 20px;
 }
-.tuychon{
+
+.tuychon {
     width: 260px;
     height: 30px;
     border: 1px solid red;
@@ -270,38 +303,44 @@
     margin-left: 45px;
     padding-top: 10px;
 }
-.tuychon a{
+
+.tuychon a {
     font-size: 13px;
     padding-left: 70px;
     padding-top: 20px;
     color: white;
-    
+
 }
-.phai{
+
+.phai {
     width: 360px;
     height: 650px;
     padding-left: 10px;
 }
-.phai1{
+
+.phai1 {
     width: 355px;
     height: 220px;
     background-color: #EAEDF1;
     border-radius: 8px;
     z-index: 2;
 }
-.phai1 img{
+
+.phai1 img {
     width: 355px;
     height: 217px;
     display: flex;
     border-radius: 8px;
-    z-index: 1 ;
+    z-index: 1;
     margin-left: 0px;
-    transition-duration: 0.3s; 
+    transition-duration: 0.3s;
 }
-.phai1 img:hover{
+
+.phai1 img:hover {
     transform: scale(1.05);
 }
-.phai2{
+
+.phai2 {
     width: 345px;
     height: 320px;
     margin-top: 50px;
@@ -309,227 +348,260 @@
     margin-left: 2px;
     display: flex;
 
-    
+
 }
-.phai2-1{
+
+.phai2-1 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.phai2-1:hover{
+
+.phai2-1:hover {
     transform: scale(1.05);
 }
 
 
-.phai2-1 img{
+.phai2-1 img {
     width: 150px;
     height: 150px;
     border-radius: 3px;
 }
-.phai2-1 a{
+
+.phai2-1 a {
     text-decoration: none;
     font-family: Arial;
     font-weight: bold;
     font-size: 10px;
     margin-left: 5px;
 }
-.gia5 img{
+
+.gia5 img {
     width: 150px;
     height: 120px;
     padding-top: 7px;
     padding-left: 3px;
 }
-.phai2-2{
+
+.phai2-2 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     margin-left: 7px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.phai2-2:hover{
+
+.phai2-2:hover {
     transform: scale(1.05);
 }
-.phai2-2 img{
+
+.phai2-2 img {
     width: 150px;
     height: 150px;
-    padding-left:5px ;
+    padding-left: 5px;
     border-radius: 3px;
-   
+
 }
-.gia6 img{
+
+.gia6 img {
     width: 155px;
     height: 120px;
     padding-top: 7px;
 }
-.phai2-2 a{
+
+.phai2-2 a {
     text-decoration: none;
     font-family: Arial;
     font-weight: bold;
     font-size: 10px;
     margin-left: 5px;
 }
-.phai3{
+
+.phai3 {
     width: 345px;
     height: 320px;
     margin-top: 7px;
     border-radius: 8px;
     margin-left: 2px;
-    display: flex;  
+    display: flex;
 }
-.phai3-1{
+
+.phai3-1 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     border: 1px solid white;
     background-color: white;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.phai3-1:hover{
+
+.phai3-1:hover {
     transform: scale(1.05);
 }
-.phai3-1 img{
+
+.phai3-1 img {
     width: 150px;
     height: 150px;
-    padding-left:5px ;
+    padding-left: 5px;
     border-radius: 3px;
-   
+
 }
-.gia7 img{
+
+.gia7 img {
     width: 155px;
     height: 100px;
     padding-top: 7px;
 }
+
 .txtphai3-1 {
     font-size: 10px;
     margin-left: 5px;
 }
-.txtphai3-1 a{
+
+.txtphai3-1 a {
     font-family: Arial;
     font-weight: bold;
     text-decoration: none;
     line-height: 15px;
 }
-.phai3-2{
+
+.phai3-2 {
     width: 170px;
     height: 320px;
     border-radius: 3px;
     border: 1px solid white;
     background-color: white;
     margin-left: 7px;
-    transition-duration: 0.3s;  
+    transition-duration: 0.3s;
 }
-.phai3-2:hover{
+
+.phai3-2:hover {
     transform: scale(1.05);
 }
-.phai3-2 img{
+
+.phai3-2 img {
     width: 150px;
     height: 150px;
-    padding-left:5px ;
+    padding-left: 5px;
     border-radius: 3px;
-   
+
 }
-.gia8 img{
+
+.gia8 img {
     width: 155px;
     height: 120px;
     padding-top: 7px;
 }
+
 .txtphai3-2 {
     font-size: 10px;
     margin-left: 5px;
 }
-.txtphai3-2 a{
+
+.txtphai3-2 a {
     font-family: Arial;
     font-weight: bold;
     text-decoration: none;
     line-height: 15px;
 }
-.ngang{
-    width: 1090px;
-    height:40px ;
+
+.ngang {
+    width: 100%;
+    height: 40px;
     border: 1px solid white;
     background-color: white;
     display: flex;
-    
 }
-.textphai{
+
+.textphai {
     margin-top: 6px;
     margin-left: 5px;
 
 }
-.textphai a{
+
+.textphai a {
     text-decoration: none;
     font-weight: bold;
     font-family: Arial;
     font-size: 20px;
-    color: #094EFF;  
+    color: #094EFF;
 }
-.ke{
+
+.ke {
     border-left: 1px solid #EBEBEB;
     margin-left: 25px;
     height: 20px;
     margin-top: 7px;
 }
 
-.xemthem{
+.xemthem {
     margin-top: 9px;
-    
+
 
 }
-.xemthem a{
+
+.xemthem a {
     text-decoration: none;
     margin-left: 630px;
     font-weight: bold;
     color: #1E1E1E;
 }
 
-.may{
-    width: 1090px;
-    height:400px ;
+.may {
+    width: 100%;
+    height: 400px;
     display: flex;
     margin-top: 6px;
+    justify-content: space-between;
 }
-.may1{
+
+.may1 {
     width: 267px;
-    height:400px ;
+    height: 400px;
     border: 1px solid white;
     background-color: white;
     border-radius: 3px;
-    transition-duration: 0.3s;  
-}
-.may1:hover{
-    transform: scale(1.03);
-    
+    transition-duration: 0.3s;
 }
 
-.may1 img{
+.may1:hover {
+    transform: scale(1.03);
+
+}
+
+.may1 img {
     width: 200px;
     margin-left: 20px;
-   
+
 }
-.txtmay1{
+
+.txtmay1 {
     margin-top: 20px;
     line-height: 20px;
     margin-left: 3px;
 }
-.txtmay1 a{
+
+.txtmay1 a {
     font-size: 15px;
     font-family: Arial;
     text-decoration: none;
     font-weight: bold;
     color: #000000;
-    
+
 }
-.giaacer1 img{
+
+.giaacer1 img {
     margin-top: 20px;
     width: 200px;
     height: 30px;
 }
-.tuychon1{
+
+.tuychon1 {
     width: 200px;
     height: 25px;
     border: 1px solid red;
@@ -538,10 +610,11 @@
     margin-left: 30px;
     padding-top: 5px;
     margin-top: 3px;
-    
+
 
 }
-.tuychon1 a{
+
+.tuychon1 a {
     text-decoration: none;
     font-size: 13px;
     padding-left: 70px;
@@ -550,46 +623,52 @@
     margin-left: 9px;
     font-weight: bold;
 }
-.may2{
+
+.may2 {
     width: 267px;
-    height:400px ;
+    height: 400px;
     border: 1px solid white;
     background-color: white;
     margin-left: 6px;
     border-radius: 3px;
-    transition-duration: 0.3s;  
-}
-.may2:hover{
-    transform: scale(1.03);
-    
+    transition-duration: 0.3s;
 }
 
-.may2 img{
-    width: 240px;
-   
-    margin-left: 20px;
-    
+.may2:hover {
+    transform: scale(1.03);
+
 }
-.txtmay2{
+
+.may2 img {
+    width: 240px;
+
+    margin-left: 20px;
+
+}
+
+.txtmay2 {
     margin-left: 5px;
     line-height: 20px;
 
 }
-.txtmay2 a{
+
+.txtmay2 a {
     font-size: 15px;
     font-family: Arial;
     text-decoration: none;
     font-weight: bold;
     color: #000000;
-    
+
 
 }
-.giaacer2 img{
+
+.giaacer2 img {
     margin-top: 20px;
     width: 200px;
     height: 30px;
 }
-.tuychon2{
+
+.tuychon2 {
     width: 200px;
     height: 25px;
     border: 1px solid red;
@@ -598,10 +677,11 @@
     margin-left: 30px;
     padding-top: 5px;
     margin-top: 3px;
-    
+
 
 }
-.tuychon2 a{
+
+.tuychon2 a {
     text-decoration: none;
     font-size: 13px;
     padding-left: 70px;
@@ -610,47 +690,53 @@
     margin-left: 9px;
     font-weight: bold;
 }
-.may3{
+
+.may3 {
     width: 267px;
-    height:400px ;
+    height: 400px;
     border: 1px solid white;
     background-color: white;
     margin-left: 6px;
     border-radius: 3px;
-    transition-duration: 0.3s;  
-}
-.may3:hover{
-    transform: scale(1.03);
-    
+    transition-duration: 0.3s;
 }
 
-.may3 img{
-    width: 240px;
-   
-    margin-left: 20px;
-    
+.may3:hover {
+    transform: scale(1.03);
+
 }
-.txtmay3{
+
+.may3 img {
+    width: 240px;
+
+    margin-left: 20px;
+
+}
+
+.txtmay3 {
     margin-left: 5px;
     line-height: 20px;
     margin-top: 3px;
 
 }
-.txtmay3 a{
+
+.txtmay3 a {
     font-size: 15px;
     font-family: Arial;
     text-decoration: none;
     font-weight: bold;
     color: #000000;
-    
+
 
 }
-.giadell1 img{
+
+.giadell1 img {
     margin-top: 40px;
     width: 200px;
     height: 30px;
 }
-.tuychon3{
+
+.tuychon3 {
     width: 200px;
     height: 25px;
     border: 1px solid red;
@@ -659,10 +745,11 @@
     margin-left: 30px;
     margin-top: 3px;
     padding-top: 5px;
-    
+
 
 }
-.tuychon3 a{
+
+.tuychon3 a {
     text-decoration: none;
     font-size: 13px;
     padding-left: 70px;
@@ -671,47 +758,53 @@
     margin-left: 9px;
     font-weight: bold;
 }
-.may4{
+
+.may4 {
     width: 267px;
-    height:400px ;
+    height: 400px;
     border: 1px solid white;
     background-color: white;
     margin-left: 6px;
     border-radius: 3px;
-    transition-duration: 0.3s;  
-}
-.may4:hover{
-    transform: scale(1.03);
-    
+    transition-duration: 0.3s;
 }
 
-.may4 img{
-    width: 240px;
-   
-    margin-left: 20px;
-    
+.may4:hover {
+    transform: scale(1.03);
+
 }
-.txtmay4{
+
+.may4 img {
+    width: 240px;
+
+    margin-left: 20px;
+
+}
+
+.txtmay4 {
     margin-left: 5px;
     line-height: 20px;
     margin-top: 3px;
 
 }
-.txtmay4 a{
+
+.txtmay4 a {
     font-size: 15px;
     font-family: Arial;
     text-decoration: none;
     font-weight: bold;
     color: #000000;
-    
+
 
 }
-.giadell2 img{
+
+.giadell2 img {
     margin-top: 40px;
     width: 200px;
     height: 30px;
 }
-.tuychon4{
+
+.tuychon4 {
     width: 200px;
     height: 30px;
     border: 1px solid red;
@@ -719,10 +812,11 @@
     border-radius: 20px;
     margin-left: 30px;
     margin-top: 5px;
-    
+
 
 }
-.tuychon4 a{
+
+.tuychon4 a {
     text-decoration: none;
     font-size: 13px;
     padding-left: 70px;
@@ -731,8 +825,9 @@
     margin-left: 9px;
     font-weight: bold;
 }
-.quangcao img{
-    width: 1090px ;
-    height: 300px;
+
+.quangcao img {
+    width: 100%;
+    height: auto;
     margin-top: 50px;
 }

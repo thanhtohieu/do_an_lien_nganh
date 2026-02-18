@@ -14,6 +14,7 @@ import KhuyenMai from "./pages/KhuyenMai";
 import TinTuc from "./pages/TinTuc";
 import LienHe from "./pages/LienHe";
 import KiemTraDonHang from "./pages/KiemTraDonHang";
+import ThanhToan from "./pages/ThanhToan";
 const App = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/TinTuc" element={<TinTuc />} />
         <Route path="/LienHe" element={<LienHe />} />
         <Route path="/KiemTraDonHang" element={<KiemTraDonHang />} />
+        <Route path="/ThanhToan" element={<ThanhToan />} />
       </Routes>
     </Router>
   );

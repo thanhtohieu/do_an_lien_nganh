@@ -1,0 +1,673 @@
+/* ========== Thanh Toán Page ========== */
+.thanhtoan-page {
+    min-height: 100vh;
+    background-color: #F0F3F7;
+}
+
+.thanhtoan-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: 60vh;
+}
+
+.thanhtoan-title {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.thanhtoan-title i {
+    color: #EE1926;
+}
+
+.thanhtoan-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.thanhtoan-content {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.thanhtoan-left {
+    flex: 1;
+}
+
+.thanhtoan-right {
+    width: 380px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 130px;
+}
+
+/* Sections */
+.tt-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tt-section h2 {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tt-section h2 i {
+    color: #EE1926;
+}
+
+/* Form */
+.tt-form-group {
+    margin-bottom: 16px;
+}
+
+.tt-form-group label {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.tt-form-group input,
+.tt-form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.tt-form-group input:focus,
+.tt-form-group textarea:focus {
+    outline: none;
+    border-color: #EE1926;
+}
+
+.tt-form-group textarea {
+    resize: vertical;
+}
+
+/* Payment Options */
+.tt-payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tt-payment-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tt-payment-option.active {
+    border-color: #EE1926;
+    background: #fff8f8;
+}
+
+.tt-payment-option input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #EE1926;
+    width: 18px;
+    height: 18px;
+}
+
+.tt-payment-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tt-payment-info i {
+    font-size: 24px;
+    color: #EE1926;
+    width: 30px;
+    text-align: center;
+}
+
+.tt-payment-info strong {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.tt-payment-info p {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-top: 3px;
+}
+
+/* Order Summary */
+.tt-order-summary {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tt-order-summary h2 {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #EE1926;
+}
+
+.tt-order-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.tt-order-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.tt-order-item:last-child {
+    border-bottom: none;
+}
+
+.tt-item-img-wrap {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+}
+
+.tt-item-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.tt-item-qty {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #EE1926;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tt-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tt-item-name {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.tt-item-price {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #EE1926;
+    margin-top: 4px;
+}
+
+.tt-summary-divider {
+    border-top: 1px dashed #ddd;
+    margin: 12px 0;
+}
+
+.tt-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+.tt-summary-total {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.tt-total-price {
+    font-size: 20px;
+    color: #EE1926;
+    font-weight: bold;
+}
+
+.tt-submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #EE1926;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tt-submit-btn:hover {
+    background: #d41520;
+}
+
+.tt-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tt-back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    padding: 12px;
+    color: #666;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.tt-back-btn:hover {
+    border-color: #EE1926;
+    color: #EE1926;
+}
+
+.tt-btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #EE1926;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    transition: background 0.2s;
+    margin: 5px;
+}
+
+.tt-btn-primary:hover {
+    background: #d41520;
+}
+
+.tt-btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid #EE1926;
+    color: #EE1926;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    transition: all 0.2s;
+    margin: 5px;
+}
+
+.tt-btn-secondary:hover {
+    background: #EE1926;
+    color: #fff;
+}
+
+/* Order Success */
+.order-success {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.success-icon {
+    font-size: 80px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.order-success h1 {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.order-success p {
+    font-family: Arial, sans-serif;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.success-actions {
+    margin-top: 30px;
+}
+
+/* Credit Card / ATM Section */
+.tt-card-section {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #eee;
+    animation: fadeInUp 0.3s ease;
+}
+
+.tt-card-header {
+    background: linear-gradient(135deg, #1a1f71, #2d3aba);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tt-card-header i {
+    font-size: 20px;
+}
+
+.tt-card-header h3 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+    flex: 1;
+}
+
+.tt-card-logos {
+    display: flex;
+    gap: 6px;
+}
+
+.tt-card-logo {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.tt-visa {
+    background: #fff;
+    color: #1a1f71;
+}
+
+.tt-mc {
+    background: #ff5f00;
+    color: #fff;
+}
+
+.tt-jcb {
+    background: #0e4c96;
+    color: #fff;
+}
+
+.tt-card-body {
+    padding: 20px;
+    background: #fff;
+}
+
+.tt-card-row {
+    display: flex;
+    gap: 15px;
+}
+
+.tt-card-row .tt-form-group {
+    flex: 1;
+}
+
+.tt-card-note {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #28a745;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 15px 0 0 0;
+    padding: 10px;
+    background: #f0fdf4;
+    border-radius: 6px;
+}
+
+.tt-card-note i {
+    font-size: 14px;
+}
+
+/* Select dropdown */
+.tt-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: auto;
+}
+
+.tt-select:focus {
+    outline: none;
+    border-color: #2d6a4f;
+}
+
+/* POS Notice */
+.tt-pos-notice {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #fff8f0;
+    border: 1px solid #f0d9b5;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    animation: fadeInUp 0.3s ease;
+}
+
+.tt-pos-notice i {
+    color: #e67e22;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.tt-pos-notice p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* QR Code Section */
+.tt-qr-section {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #eee;
+    animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tt-qr-header {
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tt-qr-header i {
+    font-size: 20px;
+}
+
+.tt-qr-header h3 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.tt-qr-body {
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.tt-qr-image {
+    display: inline-block;
+    padding: 10px;
+    border: 3px solid #1a73e8;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: #f8faff;
+}
+
+.tt-qr-image img {
+    width: 220px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.tt-qr-momo-img {
+    border-color: #a50064;
+    background: #fff5f9;
+}
+
+.tt-qr-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 300px;
+    margin: 0 auto 16px auto;
+}
+
+.tt-qr-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.tt-qr-detail span {
+    color: #666;
+}
+
+.tt-qr-detail strong {
+    color: #333;
+}
+
+.tt-qr-amount {
+    background: #fff8f8;
+    border: 1px solid #ffccd0;
+}
+
+.tt-qr-amount strong {
+    color: #EE1926;
+    font-size: 16px;
+}
+
+.tt-qr-note {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.tt-qr-note i {
+    color: #1a73e8;
+}
+
+.tt-qr-momo .tt-qr-note i {
+    color: #a50064;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .thanhtoan-content {
+        flex-direction: column;
+    }
+
+    .thanhtoan-right {
+        width: 100%;
+        position: static;
+    }
+
+    .tt-qr-image img {
+        width: 180px;
+    }
+}

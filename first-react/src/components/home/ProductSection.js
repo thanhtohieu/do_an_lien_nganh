@@ -1,233 +1,115 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { itemAPI, userAPI } from '../../APIs/APIs';
 
 const ProductSection = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetchItems();
+    }, []);
+
+    const fetchItems = async () => {
+        try {
+            const response = await itemAPI.get("/");
+            // Lấy ngẫu nhiên 4 sản phẩm
+            const shuffled = response.data.sort(() => 0.5 - Math.random()).slice(0, 4);
+            setItems(shuffled);
+        } catch (err) {
+            console.error("Error fetching items:", err);
+        }
+    };
+
+    const addToCart = async (e, itemId) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const storedUser = localStorage.getItem("user");
+        if (!storedUser) {
+            alert("Bạn chưa đăng nhập! Vui lòng đăng nhập để mua hàng.");
+            return;
+        }
+        const currentUser = JSON.parse(storedUser);
+
+        try {
+            const response = await userAPI.get(`/${currentUser.id}`);
+            const currentCart = response.data.cart || [];
+
+            const itemIndex = currentCart.findIndex(c => c.id === itemId);
+            if (itemIndex !== -1) {
+                currentCart[itemIndex].number += 1;
+            } else {
+                currentCart.push({ id: itemId, number: 1 });
+            }
+
+            await userAPI.patch(`/${currentUser.id}`, { cart: currentCart });
+
+            // Giảm tồn kho
+            const itemData = items.find(i => i.id === itemId);
+            if (itemData && itemData.remain > 0) {
+                await itemAPI.patch(`/${itemId}`, { remain: itemData.remain - 1 });
+            }
+
+            // Cập nhật localStorage
+            const updatedUser = { ...currentUser, cart: currentCart };
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            window.dispatchEvent(new Event("cartUpdated"));
+
+            alert("✅ Thêm vào giỏ hàng thành công!");
+            fetchItems();
+        } catch (err) {
+            console.error("Error adding to cart:", err);
+            alert("Đã xảy ra lỗi khi thêm vào giỏ hàng!");
+        }
+    };
+
     return (
         <div className="binhtong2">
             <div className="binhtong2-1">
-                <div
-                    className="boxbinhtong2-1"
-                    title="Laptop Gaming Acer Nitro 5 Tiger AN515-58-52SP">
-                    <a href="">
-                        <div className="binh1">
-                            <img alt="" src="./images/binh1.jpg" />
+                {items.map((item) => (
+                    <div
+                        className="boxbinhtong2-1"
+                        title={item.name}
+                        key={item.id}
+                    >
+                        <a href={`/ChitietSanpham/${item.id}`}>
+                            <div className="binh1">
+                                <img
+                                    alt={item.name}
+                                    src={item.images?.[0]}
+                                />
+                            </div>
+                            <div className="txt1boxbinhtong2-1">
+                                {item.name}
+                            </div>
+                            <div className="boxbinhdanhgia">
+                                {[1, 2, 3, 4, 5].map(i => (
+                                    <div key={i}>
+                                        <i className="fa-regular fa-star" />
+                                    </div>
+                                ))}
+                                <div className="txtboxbinhdanhgia">0 đánh giá</div>
+                            </div>
+                            <div className="boxbinhgia">
+                                <div className="boxbinhgia1">
+                                    <div className="txt1boxbinhgia1">
+                                        {item.price.toLocaleString("vi-VN")}₫
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="txtduoiradio">
+                                Còn {item.remain} sản phẩm
+                            </div>
+                            <div className="borderboxbinhtong2-1" />
+                        </a>
+                        <div
+                            className="binhtuychon1"
+                            onClick={(e) => addToCart(e, item.id)}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            <div className="txtbinhtuychon1">Thêm vào giỏ</div>
                         </div>
-                        <div className="txt1boxbinhtong2-1">
-                            Laptop Gaming Acer Nitro 5 Tiger AN515-58-52SP
-                        </div>
-                        <div className="boxbinhdanhgia">
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div className="txtboxbinhdanhgia">0 đánh giá</div>
-                        </div>
-                        <div className="boxbinhgia">
-                            <div className="boxbinhgia1">
-                                <div className="txt1boxbinhgia1">20,990,000₫</div>
-                                <div className="txt2boxbinhgia1">27,990,000₫</div>
-                            </div>
-                            <div className="boxbinhgia2">
-                                <div className="txt1boxbinhgia2">-25%</div>
-                            </div>
-                        </div>
-                        <div className="binhradio">
-                            <div>
-                                <img alt="" src="./images/binhden.jpg" title="Đen" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhhong.jpg" title="Hồng" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhtrang.jpg" title="Trắng" />
-                            </div>
-                            <div className="txtbinhradio">+3</div>
-                        </div>
-                        <div className="txtduoiradio">Chỉ còn 6 sản phẩm</div>
-                        <div className="borderboxbinhtong2-1" />
-                        <div className="binhtuychon1">
-                            <div className="txtbinhtuychon1">Tùy chọn</div>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    className="boxbinhtong2-1"
-                    title="Laptop Dell XPS 13 Plus 9320-5CG56">
-                    <a href="">
-                        <div className="binh2">
-                            <img alt="" src="./images/binh2.jpg" />
-                        </div>
-                        <div className="txt1boxbinhtong2-1">
-                            Laptop Dell XPS 13 Plus 9320-5CG56
-                        </div>
-                        <div className="boxbinhdanhgia">
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div className="txtboxbinhdanhgia">0 đánh giá</div>
-                        </div>
-                        <div className="boxbinhgia">
-                            <div className="boxbinhgia1">
-                                <div className="txt1boxbinhgia1">49,990,000₫</div>
-                                <div className="txt2boxbinhgia1">58,990,000₫</div>
-                            </div>
-                            <div className="boxbinhgia2">
-                                <div className="txt1boxbinhgia2">-27%</div>
-                            </div>
-                        </div>
-                        <div className="binhradio">
-                            <div>
-                                <img alt="" src="./images/binhhong.jpg" title="Hồng" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhxanh.jpg" title="Xanh" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhtrang.jpg" title="Trắng" />
-                            </div>
-                            <div className="txtbinhradio">+2</div>
-                        </div>
-                        <div className="txtduoiradio">Chỉ còn 4 sản phẩm</div>
-                        <div className="borderboxbinhtong2-1" />
-                        <div className="binhtuychon1">
-                            <div className="txtbinhtuychon1">Tùy chọn</div>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    className="boxbinhtong2-1"
-                    title="MacBook Pro 14 (M2 Pro/10-core CPU/16-core GPU/16GB/512GB)">
-                    <a href="">
-                        <div className="binh3">
-                            <img alt="" src="./images/binh3.jpg" />
-                        </div>
-                        <div className="txt1boxbinhtong2-1">
-                            MacBook Pro 14" (M2 Pro/10-core CPU/16-core GPU/16GB/512GB)
-                        </div>
-                        <div className="boxbinhdanhgia">
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div className="txtboxbinhdanhgia">0 đánh giá</div>
-                        </div>
-                        <div className="boxbinhgia">
-                            <div className="boxbinhgia1">
-                                <div className="txt1boxbinhgia1">46,590,000₫</div>
-                                <div className="txt2boxbinhgia1">55,000,000₫</div>
-                            </div>
-                            <div className="boxbinhgia2">
-                                <div className="txt1boxbinhgia2">-23%</div>
-                            </div>
-                        </div>
-                        <div className="binhradio">
-                            <div>
-                                <img alt="" src="./images/binhhong.jpg" title="Hồng" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhtrang.jpg" title="Trắng" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhden.jpg" title="Đen" />
-                            </div>
-                            <div className="txtbinhradio">+1</div>
-                        </div>
-                        <div className="txtduoiradio">Chỉ còn 3 sản phẩm</div>
-                        <div className="borderboxbinhtong2-1" />
-                        <div className="binhtuychon1">
-                            <div className="txtbinhtuychon1">Tùy chọn</div>
-                        </div>
-                    </a>
-                </div>
-                <div
-                    className="boxbinhtong2-1"
-                    title="MacBook Pro 16 (M2 Pro/12-core CPU/19-core GPU/16GB/512GB)">
-                    <a href="">
-                        <div className="binh4">
-                            <img alt="" src="./images/binh4.jpg" />
-                        </div>
-                        <div className="txt1boxbinhtong2-1">
-                            MacBook Pro 16" (M2 Pro/12-core CPU/19-core GPU/16GB/512GB)
-                        </div>
-                        <div className="boxbinhdanhgia">
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div>
-                                <i className="fa-regular fa-star" />
-                            </div>
-                            <div className="txtboxbinhdanhgia">0 đánh giá</div>
-                        </div>
-                        <div className="boxbinhgia">
-                            <div className="boxbinhgia1">
-                                <div className="txt1boxbinhgia1">56,990,000₫</div>
-                                <div className="txt2boxbinhgia1">65,000,000₫</div>
-                            </div>
-                            <div className="boxbinhgia2">
-                                <div className="txt1boxbinhgia2">-25%</div>
-                            </div>
-                        </div>
-                        <div className="binhradio">
-                            <div>
-                                <img alt="" src="./images/binhden.jpg" title="Đen" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhxanh.jpg" title="Xanh" />
-                            </div>
-                            <div>
-                                <img alt="" src="./images/binhtrang.jpg" title="Trắng" />
-                            </div>
-                            <div className="txtbinhradio">+2</div>
-                        </div>
-                        <div className="txtduoiradio">Chỉ còn 4 sản phẩm</div>
-                        <div className="borderboxbinhtong2-1" />
-                        <div className="binhtuychon1">
-                            <div className="txtbinhtuychon1">Tùy chọn</div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

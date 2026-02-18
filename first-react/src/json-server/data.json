@@ -8,24 +8,12 @@
       "password": "2025",
       "cart": [
         {
-          "id": "1",
-          "number": 9
-        },
-        {
           "id": "4",
-          "number": 2
+          "number": 1
         },
         {
           "id": "5baf",
           "number": 1
-        },
-        {
-          "id": "3",
-          "number": 2
-        },
-        {
-          "id": "5",
-          "number": 2
         }
       ]
     },
@@ -94,7 +82,7 @@
       "name": "[New 100%] Laptop Asus TUF Gaming A15 FA506NF-HN005W là một sản phẩm có tên dài",
       "price": 29999000,
       "monthly": 299990,
-      "remain": 91,
+      "remain": 80,
       "cpu": "AMD Ryzen 7735H (3.20 GHz - 4.75 GHz, 8 cores, 16 threads)",
       "ram": "Ram 16GB LPDDR5 6400MHz",
       "drive": "512 GB SSD",
@@ -116,7 +104,7 @@
       "name": "Laptop HP Envy x360 2-in-1 2024",
       "price": 18690000,
       "monthly": 10000000,
-      "remain": 97,
+      "remain": 95,
       "cpu": "Ryzen 7 8840H",
       "ram": "16GB",
       "drive": "1TB",
@@ -138,7 +126,7 @@
       "name": "Lenovo IdeaPad Pro 5 2024 16IMH9 83D4001JVN",
       "price": 30990000,
       "monthly": 3099000,
-      "remain": 98,
+      "remain": 96,
       "cpu": "Intel Core Ultra 7 155H (1.40GHz up to 4.80GHz, 24MB Cache)",
       "ram": "16GB Soldered LPDDR5x-7467MH",
       "drive": "512GB SSD M.2 2242 PCIe® 4.0x4 NVMe®",
@@ -160,7 +148,7 @@
       "name": "Lenovo Yoga 6 13ABR8 - AMD Ryzen 5-7530U",
       "price": 11990000,
       "monthly": 1199000,
-      "remain": 95,
+      "remain": 90,
       "cpu": "AMD Ryzen 5-7530U",
       "ram": "RAM 8GB LPDDR4 4266Mhz",
       "drive": "SSD 256GB NVMe",
@@ -182,7 +170,7 @@
       "name": "Laptop MSI Modern 14 C12MO-660VN",
       "price": 9390000,
       "monthly": 1139000,
-      "remain": 98,
+      "remain": 94,
       "cpu": "Intel Core i5 1235",
       "ram": "RAM 16GB DDR4",
       "drive": "SSD 512GB NVM",
@@ -204,7 +192,7 @@
       "name": "MacBook Pro 14 inch M2 Pro 2023 (10 CPU - 16 GPU - 16GB - 512GB)",
       "price": 55990000,
       "monthly": 559900,
-      "remain": 98,
+      "remain": 96,
       "cpu": "Apple M2 Pro chip",
       "ram": "16GB",
       "drive": "512 GB SSD",
@@ -220,6 +208,92 @@
         "https://cdn2.cellphones.com.vn/x/media/catalog/product/i/n/in_the_box_14_inch__cla7biqzxe6a_large_3.jpg",
         "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/k/e/keyboard_14_inch__bjo3gj8bnogi_large_3.jpg"
       ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "7dc8",
+      "userId": "1",
+      "customerName": "tra",
+      "phone": "0333111222",
+      "address": "jsdfsfdfsdf",
+      "note": "dfsdf",
+      "payment": "cod",
+      "items": [
+        {
+          "id": "1",
+          "name": "[New 100%] Laptop Asus TUF Gaming A15 FA506NF-HN005W là một sản phẩm có tên dài",
+          "price": 29999000,
+          "quantity": 7,
+          "image": "https://laptopaz.vn/media/product/3213_asus_tuf_gaming_a15_fa506nf.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Lenovo Yoga 6 13ABR8 - AMD Ryzen 5-7530U",
+          "price": 11990000,
+          "quantity": 2,
+          "image": "https://laptoplc.com.vn/wp-content/uploads/2023/10/4.jpeg"
+        },
+        {
+          "id": "5baf",
+          "name": "MacBook Pro 14 inch M2 Pro 2023 (10 CPU - 16 GPU - 16GB - 512GB)",
+          "price": 55990000,
+          "quantity": 1,
+          "image": "https://cdn2.cellphones.com.vn/x/media/catalog/product/r/o/routers_compare__dg2f68dd3y0y_large_3.jpg"
+        },
+        {
+          "id": "3",
+          "name": "Lenovo IdeaPad Pro 5 2024 16IMH9 83D4001JVN",
+          "price": 30990000,
+          "quantity": 2,
+          "image": "https://laptopaz.vn/media/product/3333_lenovo_ideapad_pro_5_2024.jpg"
+        },
+        {
+          "id": "5",
+          "name": "Laptop MSI Modern 14 C12MO-660VN",
+          "price": 9390000,
+          "quantity": 2,
+          "image": "https://laptop88.vn/media/product/4897_modern.jpg"
+        }
+      ],
+      "totalPrice": 370723000,
+      "status": "pending",
+      "createdAt": "2026-02-18T08:05:23.752Z"
+    },
+    {
+      "id": "3a26",
+      "userId": "1",
+      "customerName": "tra",
+      "phone": "0333111222",
+      "address": "jsdfsfdfsdf",
+      "note": "êrrwer",
+      "payment": "bank",
+      "items": [
+        {
+          "id": "5",
+          "name": "Laptop MSI Modern 14 C12MO-660VN",
+          "price": 9390000,
+          "quantity": 1,
+          "image": "https://laptop88.vn/media/product/4897_modern.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Lenovo Yoga 6 13ABR8 - AMD Ryzen 5-7530U",
+          "price": 11990000,
+          "quantity": 1,
+          "image": "https://laptoplc.com.vn/wp-content/uploads/2023/10/4.jpeg"
+        },
+        {
+          "id": "2",
+          "name": "Laptop HP Envy x360 2-in-1 2024",
+          "price": 18690000,
+          "quantity": 1,
+          "image": "https://laptopaz.vn/media/product/3413_3290_hp_envy_x360_14_fa0013dx_2024_1716883081.jpg"
+        }
+      ],
+      "totalPrice": 40070000,
+      "status": "pending",
+      "createdAt": "2026-02-18T08:14:37.991Z"
     }
   ]
 }

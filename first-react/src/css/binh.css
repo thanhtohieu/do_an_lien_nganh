@@ -257,6 +257,9 @@
 .boxbinhtong2-1 a {
     text-decoration: none;
     color: #000000;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .boxbinhtong2-1 a:hover {
@@ -835,6 +838,8 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .box1binhtong6:hover,
@@ -845,11 +850,17 @@
 
 .txtbinhcuoi1 {
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .txtbinhcuoi1 a {
     text-decoration: none;
     color: #000;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .txtbinhcuoi1 a:hover {

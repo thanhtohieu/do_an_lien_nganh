@@ -1,0 +1,592 @@
+/* ===== Kiểm tra đơn hàng ===== */
+.ktdh-page {
+    min-height: 70vh;
+    background: #f5f7fa;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.ktdh-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ktdh-title {
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ktdh-title i {
+    color: #1a73e8;
+}
+
+/* Search Section */
+.ktdh-search-section {
+    margin-bottom: 30px;
+}
+
+.ktdh-search-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e8e8e8;
+    transition: border-color 0.2s;
+}
+
+.ktdh-search-box:focus-within {
+    border-color: #1a73e8;
+}
+
+.ktdh-search-icon {
+    padding: 0 12px;
+    color: #aaa;
+    font-size: 18px;
+}
+
+.ktdh-search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 14px 10px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    background: transparent;
+}
+
+.ktdh-search-box button {
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.ktdh-search-box button:hover {
+    background: linear-gradient(135deg, #1565c0, #0a3d91);
+}
+
+.ktdh-search-error {
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #fde8e8;
+    color: #e74c3c;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Search Result */
+.ktdh-search-result {
+    margin-bottom: 30px;
+}
+
+.ktdh-search-result h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Section Title */
+.ktdh-section-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ktdh-order-count {
+    background: #e8f0fe;
+    color: #1a73e8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+/* Order Card */
+.ktdh-order-card {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.ktdh-order-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ktdh-order-card.expanded {
+    border-color: #1a73e8;
+}
+
+/* Order Header */
+.ktdh-order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ktdh-order-header:hover {
+    background: #fafbfc;
+}
+
+.ktdh-order-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ktdh-order-id {
+    font-weight: bold;
+    font-size: 15px;
+    color: #1a73e8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ktdh-order-date {
+    font-size: 13px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ktdh-order-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ktdh-status-badge {
+    padding: 5px 14px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.ktdh-toggle-icon {
+    color: #999;
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+
+/* Order Quick Info */
+.ktdh-order-quick {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px 16px;
+    flex-wrap: wrap;
+}
+
+.ktdh-quick-item {
+    font-size: 13px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ktdh-quick-label {
+    color: #999;
+}
+
+.ktdh-quick-total {
+    margin-left: auto;
+}
+
+.ktdh-total-price {
+    font-weight: bold;
+    color: #d70018;
+    font-size: 15px;
+}
+
+/* Expanded Details */
+.ktdh-order-details {
+    border-top: 1px solid #eee;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ktdh-detail-section {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.ktdh-detail-section:last-child {
+    border-bottom: none;
+}
+
+.ktdh-detail-section h4 {
+    font-size: 15px;
+    color: #333;
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ktdh-detail-section h4 i {
+    color: #1a73e8;
+}
+
+/* Shipping Info */
+.ktdh-shipping-info p {
+    font-size: 14px;
+    color: #555;
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.ktdh-shipping-info strong {
+    color: #333;
+    min-width: 110px;
+    display: inline-block;
+}
+
+/* Items List */
+.ktdh-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ktdh-item-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    background: #fafbfc;
+    border-radius: 8px;
+}
+
+.ktdh-item-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.ktdh-item-info {
+    flex: 1;
+}
+
+.ktdh-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 4px 0;
+}
+
+.ktdh-item-price-qty {
+    font-size: 13px;
+    color: #888;
+    margin: 0;
+}
+
+.ktdh-item-subtotal {
+    font-weight: bold;
+    color: #d70018;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Timeline */
+.ktdh-timeline {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 10px 0;
+    overflow-x: auto;
+}
+
+.ktdh-timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    min-width: 100px;
+}
+
+.ktdh-timeline-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+.ktdh-timeline-step.active:not(:last-child)::after {
+    background: #27ae60;
+}
+
+.ktdh-timeline-dot {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.ktdh-timeline-dot i {
+    color: #fff;
+    font-size: 14px;
+}
+
+.ktdh-timeline-step:not(.active) .ktdh-timeline-dot i {
+    color: #aaa;
+}
+
+.ktdh-timeline-content {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.ktdh-timeline-label {
+    font-size: 12px;
+    color: #888;
+    display: block;
+}
+
+.ktdh-timeline-step.active .ktdh-timeline-label {
+    color: #333;
+    font-weight: 600;
+}
+
+.ktdh-timeline-current-tag {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #27ae60;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+/* Total Bar */
+.ktdh-order-total-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #f9fafb;
+    font-size: 16px;
+    color: #555;
+    border-top: 1px solid #eee;
+}
+
+.ktdh-final-total {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d70018;
+}
+
+/* Loading & Empty States */
+.ktdh-loading {
+    text-align: center;
+    padding: 50px 20px;
+    color: #888;
+    font-size: 16px;
+}
+
+.ktdh-loading i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+    color: #1a73e8;
+}
+
+.ktdh-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+}
+
+.ktdh-empty i {
+    font-size: 50px;
+    color: #ccc;
+    margin-bottom: 16px;
+}
+
+.ktdh-empty h3 {
+    color: #555;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.ktdh-empty p {
+    font-size: 14px;
+    margin: 0 0 20px 0;
+}
+
+.ktdh-shop-btn,
+.ktdh-login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.ktdh-shop-btn:hover,
+.ktdh-login-btn:hover {
+    background: linear-gradient(135deg, #1565c0, #0a3d91);
+    color: #fff;
+}
+
+.ktdh-not-logged-in {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.ktdh-not-logged-in i {
+    font-size: 50px;
+    color: #bbb;
+    margin-bottom: 16px;
+}
+
+.ktdh-not-logged-in h3 {
+    color: #555;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.ktdh-not-logged-in p {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+    .ktdh-order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .ktdh-order-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .ktdh-order-quick {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .ktdh-quick-total {
+        margin-left: 0;
+    }
+
+    .ktdh-timeline {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .ktdh-timeline-step {
+        flex-direction: row;
+        align-items: center;
+        min-width: auto;
+        gap: 12px;
+        padding: 6px 0;
+    }
+
+    .ktdh-timeline-step:not(:last-child)::after {
+        top: auto;
+        left: 16px;
+        width: 3px;
+        height: 100%;
+    }
+
+    .ktdh-timeline-content {
+        text-align: left;
+        margin-top: 0;
+    }
+
+    .ktdh-search-box {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .ktdh-search-box input {
+        width: 100%;
+    }
+
+    .ktdh-search-box button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ktdh-search-icon {
+        display: none;
+    }
+}

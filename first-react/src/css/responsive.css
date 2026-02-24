@@ -106,7 +106,41 @@
         margin: 0px 5% !important;
     }
 
-    /* --- Homepage sections --- */
+    /* --- Homepage sections & Banner --- */
+    .main-section {
+        height: auto !important;
+        padding: 20px 0;
+    }
+
+    .main-section .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .main-section .left {
+        width: 100% !important;
+        height: 400px !important;
+        margin-right: 0 !important;
+    }
+
+    .main-section .right {
+        width: 100% !important;
+        height: auto !important;
+        flex-direction: row !important;
+        gap: 10px;
+    }
+
+    .main-section .right .product {
+        width: calc(33.333% - 7px) !important;
+        height: 120px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .main-section .right .product img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
     .khungsp1 {
         flex-wrap: wrap;
         height: auto !important;
@@ -408,7 +442,30 @@
         margin-bottom: 15px;
     }
 
-    /* --- Homepage sections --- */
+    /* --- Homepage sections & Banner --- */
+    .main-section {
+        padding: 10px 0;
+    }
+
+    .main-section .container {
+        gap: 10px;
+    }
+
+    .main-section .left {
+        height: 250px !important;
+    }
+
+    .main-section .right {
+        flex-direction: column !important;
+        gap: 8px;
+    }
+
+    .main-section .right .product {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 2/1;
+    }
+
     .khungsp1 {
         flex-direction: column;
         height: auto !important;

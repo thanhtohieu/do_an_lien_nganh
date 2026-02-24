@@ -106,20 +106,37 @@ a:hover {
 }
 
 .left-bottom-header {
-  flex-basis: 40%;
+  flex-basis: 65%;
   align-items: center;
-  justify-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .right-bottom-header {
-  flex-basis: 40%;
+  flex-basis: 35%;
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.bottom-header .nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.bottom-header .nav-link:hover {
+  background-color: #E60000;
+  color: white;
+  border-color: #E60000;
 }
 
 /* Cart Badge */

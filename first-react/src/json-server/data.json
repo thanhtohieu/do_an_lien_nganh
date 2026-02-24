@@ -6,17 +6,10 @@
       "name": "tra",
       "numberphone": "12345",
       "password": "2025",
-      "cart": [
-        {
-          "id": "2",
-          "number": 1
-        },
-        {
-          "id": "4",
-          "number": 1
-        }
-      ],
-      "savedCoupons": []
+      "cart": [],
+      "savedCoupons": [
+        "1"
+      ]
     },
     {
       "id": "2",
@@ -124,7 +117,7 @@
       "name": "Laptop HP Envy x360 2-in-1 2024",
       "price": 18690000,
       "monthly": 10000000,
-      "remain": 94,
+      "remain": 93,
       "cpu": "Ryzen 7 8840H",
       "ram": "16GB",
       "drive": "1TB",
@@ -168,7 +161,7 @@
       "name": "Lenovo Yoga 6 13ABR8 - AMD Ryzen 5-7530U",
       "price": 11990000,
       "monthly": 1199000,
-      "remain": 88,
+      "remain": 87,
       "cpu": "AMD Ryzen 5-7530U",
       "ram": "RAM 8GB LPDDR4 4266Mhz",
       "drive": "SSD 256GB NVMe",
@@ -363,6 +356,37 @@
       "totalPrice": 138359000,
       "status": "delivered",
       "createdAt": "2026-02-18T09:06:08.066Z"
+    },
+    {
+      "id": "1a12",
+      "userId": "1",
+      "customerName": "tra",
+      "phone": "0333111222",
+      "address": "jsdfsfdfsdf",
+      "note": "",
+      "payment": "zalopay",
+      "items": [
+        {
+          "id": "2",
+          "name": "Laptop HP Envy x360 2-in-1 2024",
+          "price": 18690000,
+          "quantity": 1,
+          "image": "https://laptopaz.vn/media/product/3413_3290_hp_envy_x360_14_fa0013dx_2024_1716883081.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Lenovo Yoga 6 13ABR8 - AMD Ryzen 5-7530U",
+          "price": 11990000,
+          "quantity": 1,
+          "image": "https://laptoplc.com.vn/wp-content/uploads/2023/10/4.jpeg"
+        }
+      ],
+      "totalPrice": 28680000,
+      "originalPrice": 30680000,
+      "couponCode": "GIAM10PHAN",
+      "discount": 2000000,
+      "status": "pending",
+      "createdAt": "2026-02-24T15:05:57.243Z"
     }
   ],
   "coupons": [
@@ -374,7 +398,7 @@
       "minOrder": 500000,
       "maxDiscount": 2000000,
       "usageLimit": 100,
-      "usedCount": 5,
+      "usedCount": 6,
       "expiryDate": "2026-12-31",
       "active": true
     },

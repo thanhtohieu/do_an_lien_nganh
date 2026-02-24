@@ -140,7 +140,7 @@ body {
 /* Main Section */
 .main-section {
     position: relative;
-    height: 512px;
+    height: 650px;
     background-size: cover;
     background-repeat: no-repeat;
     width: auto;
@@ -162,27 +162,27 @@ body {
     display: flex;
     align-items: center;
     height: 100%;
-    max-width: 1400px;
-    width: 90%;
+    max-width: 1600px;
+    width: 95%;
     padding: 0;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
     margin: 0 auto;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .main-section .left {
     flex: 1;
-    height: 446px;
+    height: 600px;
     position: relative;
     margin-right: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -244,14 +244,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 446px;
-    width: 286px;
+    height: 600px;
+    width: 400px;
     flex-shrink: 0;
 }
 
 .main-section .right .product {
-    width: 286px;
-    height: 140px;
+    width: 400px;
+    height: 190px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -259,13 +259,13 @@ body {
     align-items: center;
     margin-bottom: 2px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
 .main-section .right .product img {
-    width: 286px;
-    height: 140px;
+    width: 400px;
+    height: 190px;
     object-fit: cover;
     transition: transform 0.4s ease-out;
 }

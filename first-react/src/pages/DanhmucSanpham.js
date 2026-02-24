@@ -120,14 +120,6 @@ const DanhmucSanpham = () => {
           <div>
             <ItemList rows={0} sapxep={sapxep} giathap={giathap} giacao={giacao} category={categoryParam} search={searchQuery} brand={brand} />
           </div>
-
-          <div className="chuyentrang">
-            <div className="boxso">
-              <a href="">
-                <div className="so">1</div>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
       <Footer />

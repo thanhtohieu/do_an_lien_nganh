@@ -2,16 +2,26 @@ import { useEffect, useState } from "react";
 import { itemAPI } from "../APIs/APIs";
 import "../css/ItemList.css";
 
+const ITEMS_PER_PAGE = 12;
+
 function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, category = null, search = "", brand = null }) {
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    // Reset về trang 1 khi filter thay đổi
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [sapxep, giathap, giacao, category, search, brand]);
 
     useEffect(() => {
         const fetchItems = async () => {
+            setLoading(true);
             try {
                 const response = await itemAPI.get("/");
                 let data = response.data;
 
-                // nếu giới hạn sản phẩm đều ra thì lấy nagaur nhiên sản phẩm
+                // nếu giới hạn sản phẩm đều ra thì lấy ngẫu nhiên sản phẩm
                 if (rows != 0) {
                     data = data.sort(() => 0.5 - Math.random()).slice(0, rows * 4);
                 }
@@ -37,7 +47,6 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
                         if (searchTerm === 'bag') return name.includes('balo') || name.includes('túi');
                         if (searchTerm === 'chair') return name.includes('ghế');
                         if (searchTerm === 'cable') return name.includes('cáp') || name.includes('dây');
-
                         return name.includes(searchTerm);
                     });
                 }
@@ -48,7 +57,7 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
                     data = data.filter((item) => item.name.toLowerCase().includes(searchLower));
                 }
 
-                //Lọc giá
+                // Lọc giá
                 if (giathap !== null && giacao !== null) {
                     data = data.filter((item) => item.price >= giathap && item.price <= giacao);
                 }
@@ -74,35 +83,124 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
             } catch (error) {
                 console.error("Error fetching items:", error);
             }
+            setLoading(false);
         };
         fetchItems();
-    }, [rows, sapxep, giathap, giacao, category, search, brand]); // Cập nhật khi props thay đổi
+    }, [rows, sapxep, giathap, giacao, category, search, brand]);
+
+    // Tính pagination
+    const totalPages = rows === 0 ? Math.ceil(items.length / ITEMS_PER_PAGE) : 1;
+    const displayItems = rows === 0
+        ? items.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+        : items;
+
+    const goToPage = (page) => {
+        setCurrentPage(page);
+        window.scrollTo({ top: 300, behavior: 'smooth' });
+    };
+
+    // Tạo danh sách số trang hiển thị
+    const getPageNumbers = () => {
+        const pages = [];
+        const maxVisible = 5;
+        let start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+        let end = Math.min(totalPages, start + maxVisible - 1);
+        if (end - start + 1 < maxVisible) {
+            start = Math.max(1, end - maxVisible + 1);
+        }
+        for (let i = start; i <= end; i++) pages.push(i);
+        return pages;
+    };
+
+    // Loading spinner
+    if (loading) {
+        return (
+            <div className="itemlist-loading">
+                <div className="spinner"></div>
+                <p>Đang tải sản phẩm...</p>
+            </div>
+        );
+    }
 
     return (
         <div className="sanphamtuongtu">
             {items.length === 0 ? (
-                <div style={{ textAlign: 'center', padding: '40px 20px', color: '#999' }}>
-                    <i className="fas fa-box-open" style={{ fontSize: '48px', marginBottom: '15px', display: 'block' }}></i>
-                    <p style={{ fontSize: '16px' }}>Không tìm thấy sản phẩm nào phù hợp.</p>
-                    <p style={{ fontSize: '14px' }}>Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm.</p>
+                <div className="itemlist-empty">
+                    <i className="fas fa-box-open"></i>
+                    <p>Không tìm thấy sản phẩm nào phù hợp.</p>
+                    <span>Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm.</span>
                 </div>
             ) : (
-                <ul className="laptop-list">
-                    {items.map((item) => (
-                        <li key={item.id} className="sptt">
-                            <a href={`/ChitietSanpham/${item.id}`}>
-                                <div className="img">
-                                    <img alt={item.name} src={item.images[0]} />
-                                </div>
-                                <div className="title">
-                                    <h4>{item.name}</h4>
-                                    <p>{item.price.toLocaleString("vi-VN")} đ</p>
-                                    <span>Xem ngay!</span>
-                                </div>
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <>
+                    {/* Thông tin số lượng */}
+                    {rows === 0 && (
+                        <div className="itemlist-info">
+                            Hiển thị {(currentPage - 1) * ITEMS_PER_PAGE + 1}–{Math.min(currentPage * ITEMS_PER_PAGE, items.length)} / {items.length} sản phẩm
+                        </div>
+                    )}
+
+                    <ul className="laptop-list">
+                        {displayItems.map((item) => (
+                            <li key={item.id} className="sptt">
+                                <a href={`/ChitietSanpham/${item.id}`}>
+                                    <div className="img">
+                                        <img alt={item.name} src={item.images[0]} />
+                                    </div>
+                                    <div className="title">
+                                        <h4>{item.name}</h4>
+                                        <p>{item.price.toLocaleString("vi-VN")} đ</p>
+                                        <span>Xem ngay!</span>
+                                    </div>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Pagination */}
+                    {totalPages > 1 && (
+                        <div className="pagination">
+                            <button
+                                className="page-btn"
+                                onClick={() => goToPage(currentPage - 1)}
+                                disabled={currentPage === 1}
+                            >
+                                <i className="fas fa-chevron-left"></i>
+                            </button>
+
+                            {getPageNumbers()[0] > 1 && (
+                                <>
+                                    <button className="page-btn" onClick={() => goToPage(1)}>1</button>
+                                    {getPageNumbers()[0] > 2 && <span className="page-dots">...</span>}
+                                </>
+                            )}
+
+                            {getPageNumbers().map(page => (
+                                <button
+                                    key={page}
+                                    className={`page-btn ${page === currentPage ? 'page-active' : ''}`}
+                                    onClick={() => goToPage(page)}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+
+                            {getPageNumbers()[getPageNumbers().length - 1] < totalPages && (
+                                <>
+                                    {getPageNumbers()[getPageNumbers().length - 1] < totalPages - 1 && <span className="page-dots">...</span>}
+                                    <button className="page-btn" onClick={() => goToPage(totalPages)}>{totalPages}</button>
+                                </>
+                            )}
+
+                            <button
+                                className="page-btn"
+                                onClick={() => goToPage(currentPage + 1)}
+                                disabled={currentPage === totalPages}
+                            >
+                                <i className="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );

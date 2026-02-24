@@ -144,6 +144,7 @@ function Myheader() {
                 <a href="/TinTuc" className="nav-link">Tin tức</a>
                 <a href="/LienHe" className="nav-link">Liên hệ</a>
                 <a href="/KiemTraDonHang" className="nav-link">Kiểm tra đơn hàng</a>
+                {user && <a href="/OrderHistory" className="nav-link">Đơn hàng của tôi</a>}
               </div>
               <div className="right-bottom-header">
                 <a href='/DanhmucSanpham' className="nav-link">

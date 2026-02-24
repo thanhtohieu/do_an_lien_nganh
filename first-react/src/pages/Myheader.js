@@ -120,6 +120,11 @@ function Myheader() {
                 </form>
               </div>
               <div className="right-top-header">
+                {user && (
+                  <a href="/Profile" className="login-btn">
+                    <i className="fas fa-id-card"></i> Tài khoản
+                  </a>
+                )}
                 <a
                   href="#"
                   onClick={user ? dangxuat : () => navigate("/Dangnhap")}

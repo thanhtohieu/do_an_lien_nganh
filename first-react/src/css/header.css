@@ -49,6 +49,7 @@ a:hover {
 
 #logo {
   height: 100px;
+  mix-blend-mode: multiply;
 }
 
 .main-header {

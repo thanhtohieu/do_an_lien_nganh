@@ -12,6 +12,13 @@ function ChitietSanpham() {
   const { id } = useParams(); // Lấy ID từ URL
   const [user, setUser] = useState(null);
 
+  const [newReviewText, setNewReviewText] = useState("");
+  const [reviews, setReviews] = useState([
+    { id: 1, name: "Hoàng Tuấn Anh", text: "Giao hàng siêu tốc! Máy đóng gói rất cẩn thận, mở hộp ra nhìn máy mới cứng rất sướng. Mình đã thiết lập và mọi thứ chạy cực kỳ mượt mà. 10 điểm cho shop!" },
+    { id: 2, name: "Lê Thủy Trúc", text: "Mình mua để làm việc văn phòng và lướt web. Nhìn chung thiết kế rất đẹp, nữ xài hợp. Bàn phím nhấn êm tay, loa to rõ. Tuyệt vời!" },
+    { id: 3, name: "Phạm Văn Nam", text: "Cấu hình tốt trong tầm giá, chiến game không bị tụt FPS chút nào. Tuy nhiên màn hình hơi chói nếu dùng ngoài trời nắng gắt. Vẫn đánh giá 5 sao vì tư vấn nhiệt tình." }
+  ]);
+
 
   const fetchItems = async () => {
     try {
@@ -85,6 +92,21 @@ function ChitietSanpham() {
       alert("Đã xảy ra lỗi khi thêm vào giỏ hàng!");
     }
   };
+
+  const handleSubmitReview = () => {
+    if (!newReviewText.trim()) {
+      alert("Vui lòng nhập nội dung đánh giá!");
+      return;
+    }
+    const newReview = {
+      id: Date.now(),
+      name: user && user.name ? user.name : "Khách ẩn danh",
+      text: newReviewText,
+    };
+    setReviews([newReview, ...reviews]);
+    setNewReviewText("");
+    alert("Cảm ơn bạn đã gửi đánh giá tuyệt vời!");
+  };
   return (
     <div className="body">
       <Myheader />
@@ -106,9 +128,9 @@ function ChitietSanpham() {
               <ul className="list-img">
                 {item.images != null ? (
                   item.images.map((img, index) => (
-                    <li>
+                    <li key={index}>
                       <img
-                        key={index}
+                        key={`img-${index}`}
                         src={img}
                         alt={`Thumbnail ${index}`}
                         onClick={() => setBigimg(img)}
@@ -154,10 +176,9 @@ function ChitietSanpham() {
                 <li>
                   <input id="option3" name="baohanh" type="radio" />
                   <label htmlFor="option3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
-                    possimus.
+                    Bảo hành mở rộng 24 tháng: Gói bảo hành cao cấp bảo vệ toàn diện thiết bị
                   </label>
-                  <p>1.500.00 đ</p>
+                  <p>1.500.000 đ</p>
                 </li>
               </ul>
             </div>
@@ -167,22 +188,13 @@ function ChitietSanpham() {
               </h3>
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                  amet repellendus in eum laboriosam facere aperiam sed explicabo
-                  ullam cumque cum hic ducimus iure qui non alias id, expedita
-                  maxime.
+                  Sản phẩm được thiết kế với khung vỏ tinh tế, siêu mỏng nhẹ, mang lại vẻ ngoài cực kỳ thanh lịch và chuyên nghiệp. Bạn có thể tự tin mang theo máy đi học hay đi cà phê mỗi ngày.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                  amet repellendus in eum laboriosam facere aperiam sed explicabo
-                  ullam cumque cum hic ducimus iure qui non alias id, expedita
-                  maxime.
+                  Sức mạnh vượt trội từ bộ vi xử lý thế hệ mới, giúp bạn xử lý mượt mà mọi tác vụ từ học tập, văn phòng, đồ họa cho đến giải trí với các tựa game eSports mà không lo giật lag.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-                  amet repellendus in eum laboriosam facere aperiam sed explicabo
-                  ullam cumque cum hic ducimus iure qui non alias id, expedita
-                  maxime.
+                  Màn hình có tần số quét cao, màu sắc trung thực mang lại trải nghiệm thị giác tuyệt vời. Hệ thống tản nhiệt hoạt động êm ái giúp máy luôn mát mẻ dù hoạt động lâu.
                 </p>
               </div>
               <span>
@@ -371,63 +383,17 @@ function ChitietSanpham() {
             <input accept="image/*" id="imageUpload" name="image" type="file" />
           </form>
           <ul className="list-cmt">
-            <li id="user-cmt">
-              <img alt="user" src="../images/user.png" />
-              <div>
-                <p>
-                  <b>Tên người dùng</b>
-                </p>
-                <p>Cmt ngắn.</p>
-              </div>
-            </li>
-            <li id="user-cmt">
-              <img alt="user" src="../images/user.png" />
-              <div>
-                <p>
-                  <b>Tên người dùng</b>
-                </p>
-                <p>Cmt ngắn</p>
-              </div>
-            </li>
-            <li id="user-cmt">
-              <img alt="user" src="../images/user.png" />
-              <div>
-                <p>
-                  <b>Tên người dùng</b>
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                  perferendis laborum suscipit mollitia debitis nesciunt corrupti
-                  officiis illo harum quas!
-                </p>
-              </div>
-            </li>
-            <li id="user-cmt">
-              <img alt="user" src="../images/user.png" />
-              <div>
-                <p>
-                  <b>Tên người dùng</b>
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Consectetur culpa labore totam iusto sequi? Doloremque porro
-                  magnam doloribus voluptatibus aliquam!{" "}
-                </p>
-              </div>
-            </li>
-            <li id="user-cmt">
-              <img alt="user" src="../images/user.png" />
-              <div>
-                <p>
-                  <b>Tên người dùng</b>
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                  minima, dignissimos voluptate sunt iure veniam. Quae deserunt
-                  reiciendis quas velit?
-                </p>
-              </div>
-            </li>
+            {reviews.map((review) => (
+              <li key={review.id} id="user-cmt">
+                <img alt="user" src="../images/user.png" />
+                <div>
+                  <p>
+                    <b>{review.name}</b>
+                  </p>
+                  <p>{review.text}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

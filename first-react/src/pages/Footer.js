@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <div className="top">
-        <img alt="Logo" className="logo" src="./images/pnk2.webp" />
+        <img alt="Logo" className="logo" src="/images/pnk2.webp" />
         <div className="website">
           <h4>Về chúng tôi</h4>
           <ul>

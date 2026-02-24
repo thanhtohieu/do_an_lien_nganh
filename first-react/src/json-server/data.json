@@ -15,7 +15,8 @@
           "id": "4",
           "number": 1
         }
-      ]
+      ],
+      "savedCoupons": []
     },
     {
       "id": "2",
@@ -32,7 +33,8 @@
           "id": "4",
           "number": 2
         }
-      ]
+      ],
+      "savedCoupons": []
     },
     {
       "id": "3",
@@ -49,7 +51,8 @@
           "id": "5baf",
           "number": 1
         }
-      ]
+      ],
+      "savedCoupons": []
     },
     {
       "id": "7d0f",
@@ -65,7 +68,14 @@
         {
           "id": "4",
           "number": 1
+        },
+        {
+          "id": "1",
+          "number": 1
         }
+      ],
+      "savedCoupons": [
+        "1"
       ]
     },
     {
@@ -82,7 +92,8 @@
       "email": "admin@shop.com",
       "password": "admin123",
       "role": "admin",
-      "cart": []
+      "cart": [],
+      "savedCoupons": []
     }
   ],
   "items": [
@@ -91,7 +102,7 @@
       "name": "[New 100%] Laptop Asus TUF Gaming A15 FA506NF-HN005W",
       "price": 29999000,
       "monthly": 299990,
-      "remain": 77,
+      "remain": 76,
       "cpu": "AMD Ryzen 7735H (3.20 GHz - 4.75 GHz, 8 cores, 16 threads)",
       "ram": "Ram 16GB LPDDR5 6400MHz",
       "drive": "512 GB SSD",
@@ -352,6 +363,56 @@
       "totalPrice": 138359000,
       "status": "delivered",
       "createdAt": "2026-02-18T09:06:08.066Z"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "1",
+      "code": "GIAM10PHAN",
+      "type": "percent",
+      "value": 10,
+      "minOrder": 500000,
+      "maxDiscount": 2000000,
+      "usageLimit": 100,
+      "usedCount": 5,
+      "expiryDate": "2026-12-31",
+      "active": true
+    },
+    {
+      "id": "2",
+      "code": "GIAM500K",
+      "type": "fixed",
+      "value": 500000,
+      "minOrder": 5000000,
+      "maxDiscount": 500000,
+      "usageLimit": 50,
+      "usedCount": 3,
+      "expiryDate": "2026-12-31",
+      "active": true
+    },
+    {
+      "id": "3",
+      "code": "WELCOME15",
+      "type": "percent",
+      "value": 15,
+      "minOrder": 1000000,
+      "maxDiscount": 3000000,
+      "usageLimit": 200,
+      "usedCount": 12,
+      "expiryDate": "2026-06-30",
+      "active": true
+    },
+    {
+      "id": "4",
+      "code": "FREESHIP99K",
+      "type": "fixed",
+      "value": 99000,
+      "minOrder": 300000,
+      "maxDiscount": 99000,
+      "usageLimit": 500,
+      "usedCount": 45,
+      "expiryDate": "2026-12-31",
+      "active": true
     }
   ]
 }

@@ -4,11 +4,16 @@ import { userAPI, itemAPI } from "../APIs/APIs";
 import axios from "axios";
 import Myheader from "./Myheader";
 import '../css/ThanhToan.css';
+import '../css/MyCoupons.css';
 import Footer from "./Footer";
 
 const url = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const orderAPI = axios.create({
     baseURL: url + '/orders',
+    headers: { "Content-Type": "application/json" },
+});
+const couponAPI = axios.create({
+    baseURL: url + '/coupons',
     headers: { "Content-Type": "application/json" },
 });
 
@@ -33,6 +38,9 @@ const ThanhToan = () => {
     const [submitting, setSubmitting] = useState(false);
     const [orderSuccess, setOrderSuccess] = useState(false);
     const [orderId, setOrderId] = useState(null);
+    const [myCoupons, setMyCoupons] = useState([]);
+    const [selectedCoupon, setSelectedCoupon] = useState(null);
+    const [discount, setDiscount] = useState(0);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -85,7 +93,41 @@ const ThanhToan = () => {
         }
     };
 
+    // Load saved coupons
+    useEffect(() => {
+        if (user) {
+            const loadCoupons = async () => {
+                try {
+                    const [couponRes, userRes] = await Promise.all([
+                        couponAPI.get('/'),
+                        userAPI.get(`/${user.id}`)
+                    ]);
+                    const savedIds = userRes.data.savedCoupons || [];
+                    const saved = couponRes.data.filter(c => savedIds.includes(c.id));
+                    setMyCoupons(saved);
+                } catch (err) { console.error('Error loading coupons:', err); }
+            };
+            loadCoupons();
+        }
+    }, [user]);
+
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    // Calculate discount when coupon or total changes
+    useEffect(() => {
+        if (!selectedCoupon) { setDiscount(0); return; }
+        if (totalPrice < selectedCoupon.minOrder) { setDiscount(0); setSelectedCoupon(null); return; }
+        let disc = 0;
+        if (selectedCoupon.type === 'percent') {
+            disc = Math.round(totalPrice * selectedCoupon.value / 100);
+            if (selectedCoupon.maxDiscount && disc > selectedCoupon.maxDiscount) disc = selectedCoupon.maxDiscount;
+        } else {
+            disc = selectedCoupon.value;
+        }
+        setDiscount(disc);
+    }, [selectedCoupon, totalPrice]);
+
+    const finalPrice = totalPrice - discount;
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -121,7 +163,10 @@ const ThanhToan = () => {
                     quantity: item.quantity,
                     image: item.images?.[0] || ""
                 })),
-                totalPrice: totalPrice,
+                totalPrice: finalPrice,
+                originalPrice: totalPrice,
+                couponCode: selectedCoupon ? selectedCoupon.code : null,
+                discount: discount,
                 status: "pending",
                 createdAt: new Date().toISOString()
             };
@@ -133,6 +178,13 @@ const ThanhToan = () => {
             for (const item of cartItems) {
                 const newRemain = Math.max(0, item.remain - item.quantity);
                 await itemAPI.patch(`/${item.id}`, { remain: newRemain });
+            }
+
+            // Update coupon usage
+            if (selectedCoupon) {
+                await couponAPI.patch(`/${selectedCoupon.id}`, {
+                    usedCount: (selectedCoupon.usedCount || 0) + 1
+                });
             }
 
             // Clear cart
@@ -544,10 +596,59 @@ const ThanhToan = () => {
                                     ))}
                                 </div>
                                 <div className="tt-summary-divider"></div>
+
+                                {/* Coupon section */}
+                                <div className="tt-coupon-section">
+                                    <h3><i className="fas fa-ticket-alt"></i> Mã giảm giá</h3>
+                                    {myCoupons.length === 0 ? (
+                                        <p className="tt-coupon-empty">Chưa lưu mã giảm giá. <a href="/KhuyenMai" style={{ color: '#EE1926' }}>Lấy mã</a></p>
+                                    ) : (
+                                        <div className="tt-coupon-list">
+                                            {myCoupons.map(c => {
+                                                const expired = new Date(c.expiryDate) < new Date();
+                                                const soldOut = c.usedCount >= c.usageLimit;
+                                                const notEnough = totalPrice < c.minOrder;
+                                                const disabled = expired || soldOut || notEnough;
+                                                const isSelected = selectedCoupon?.id === c.id;
+                                                return (
+                                                    <label key={c.id} className={`tt-coupon-item ${isSelected ? 'selected' : ''} ${disabled ? 'disabled' : ''}`}
+                                                        onClick={() => { if (!disabled) setSelectedCoupon(isSelected ? null : c); }}>
+                                                        <input type="radio" checked={isSelected} readOnly disabled={disabled} />
+                                                        <span className={`tt-coupon-badge ${c.type}`}>
+                                                            {c.type === 'percent' ? `-${c.value}%` : `-${(c.value / 1000).toFixed(0)}K`}
+                                                        </span>
+                                                        <div className="tt-coupon-info">
+                                                            <strong>{c.code}</strong>
+                                                            <span>
+                                                                {disabled
+                                                                    ? (expired ? 'Hết hạn' : soldOut ? 'Hết lượt' : `Đơn tối thiểu ${c.minOrder.toLocaleString('vi-VN')}₫`)
+                                                                    : `Đơn từ ${c.minOrder.toLocaleString('vi-VN')}₫`
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                );
+                                            })}
+                                        </div>
+                                    )}
+                                    {selectedCoupon && (
+                                        <button className="tt-coupon-clear" onClick={() => setSelectedCoupon(null)}>
+                                            <i className="fas fa-times"></i> Bỏ chọn mã
+                                        </button>
+                                    )}
+                                </div>
+
+                                <div className="tt-summary-divider"></div>
                                 <div className="tt-summary-row">
                                     <span>Tạm tính:</span>
                                     <span>{totalPrice.toLocaleString("vi-VN")}₫</span>
                                 </div>
+                                {discount > 0 && (
+                                    <div className="tt-summary-row tt-discount-row">
+                                        <span><i className="fas fa-tag"></i> Giảm giá ({selectedCoupon?.code}):</span>
+                                        <span>-{discount.toLocaleString("vi-VN")}₫</span>
+                                    </div>
+                                )}
                                 <div className="tt-summary-row">
                                     <span>Phí vận chuyển:</span>
                                     <span className="free-ship">Miễn phí</span>
@@ -555,7 +656,7 @@ const ThanhToan = () => {
                                 <div className="tt-summary-divider"></div>
                                 <div className="tt-summary-row tt-summary-total">
                                     <span>Tổng cộng:</span>
-                                    <span className="tt-total-price">{totalPrice.toLocaleString("vi-VN")}₫</span>
+                                    <span className="tt-total-price">{finalPrice.toLocaleString("vi-VN")}₫</span>
                                 </div>
                                 <button
                                     onClick={handleSubmit}

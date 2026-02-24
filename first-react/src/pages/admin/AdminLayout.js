@@ -57,6 +57,12 @@ const AdminLayout = () => {
                         </NavLink>
                     </li>
                     <li>
+                        <NavLink to="/admin/coupons" className={({ isActive }) => isActive ? 'active' : ''}>
+                            <i className="fas fa-ticket-alt"></i>
+                            <span>Mã giảm giá</span>
+                        </NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/" className={() => ''}>
                             <i className="fas fa-store"></i>
                             <span>Xem cửa hàng</span>

@@ -143,6 +143,7 @@ function Myheader() {
                 <a href="/KhuyenMai" className="nav-link">Khuyến mãi</a>
                 <a href="/TinTuc" className="nav-link">Tin tức</a>
                 <a href="/LienHe" className="nav-link">Liên hệ</a>
+                <a href="/MyCoupons" className="nav-link">Mã giảm giá</a>
                 <a href="/KiemTraDonHang" className="nav-link">Kiểm tra đơn hàng</a>
 
               </div>

@@ -23,6 +23,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProducts from "./pages/admin/AdminProducts";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AdminUsers from "./pages/admin/AdminUsers";
+import AdminCoupons from "./pages/admin/AdminCoupons";
+import MyCoupons from "./pages/MyCoupons";
 const App = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
@@ -53,6 +55,7 @@ const App = () => {
         <Route path="/KiemTraDonHang" element={<KiemTraDonHang />} />
         <Route path="/ThanhToan" element={<ThanhToan />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/MyCoupons" element={<MyCoupons />} />
 
         {/* Admin routes */}
         <Route path="/admin" element={<AdminLayout />}>
@@ -60,6 +63,7 @@ const App = () => {
           <Route path="products" element={<AdminProducts />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="users" element={<AdminUsers />} />
+          <Route path="coupons" element={<AdminCoupons />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

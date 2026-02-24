@@ -43,30 +43,16 @@ function Dangky({ onLogin }) {
         return;
       }
 
-      await userAPI.post("/", { name, numberphone, email, password });
+      const createResponse = await userAPI.post("/", { name, numberphone, email, password });
+      const createdUser = createResponse.data; // Server trả về user với ID thật
       localStorage.setItem("user", JSON.stringify({
-        email: email,
-        name: name
+        email: createdUser.email,
+        name: createdUser.name,
+        id: createdUser.id,
+        cart: createdUser.cart || []
       }));
       alert("Đăng ký thành công!");
-      // onLogin không cần thiết phải truyền users, có thể load lại hoặc chỉ pass user mới
-      // Để tương thích logic cũ (có vẻ onLogin mong đợi list users?), ta cứ bỏ qua arg users
-      // Hoặc nếu onLogin set state users ở App.js, ta cần xem lại. 
-      // App.js: onLogin={setCurrentUser} -> setCurrentUser mong đợi user object, không phải list users.
-      // Dangky.js cũ: onLogin(users) -> SAI?
-      // App.js line 32: <Dangky onLogin={setCurrentUser} />
-      // setCurrentUser expects user object.
-      // Dangky.js cũ line 60: onLogin(users).
-      // users state trong Dangky.js là list of users.
-      // Vậy Dangky.js cũ đang gọi onLogin với [list users], nhưng App.js dùng nó như currentUser object?
-      // Nếu đúng vậy, code cũ bị BUG logic ở đây. Nếu đăng ký xong, currentUser sẽ là array -> crash hoặc sai logic ở Home?
-      // Home.js: currentUser ? <Home user={currentUser} ... />
-      // Nếu currentUser là array, Home user prop là array.
-      // Home.js cũ không dùng prop user.
-      // Nhưng App.js: currentUser ? (Home user={currentUser}...)
-      // Có vẻ logic cũ bị sai. Tôi sẽ fix để onLogin nhận user object mới tạo.
-      const newUser = { name, email, id: "new_id_placeholder" }; // ID server gen
-      onLogin(newUser);
+      onLogin(createdUser);
       navigate("/");
 
     } catch (error) {

@@ -1,29 +1,34 @@
-.headerFake{
+.headerFake {
     margin-bottom: 20px;
 }
-.khungmainsp{
+
+.khungmainsp {
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.mainsp{
+
+.mainsp {
     margin: 0px 10%;
     height: auto;
 }
-.locphankhuc{
+
+.locphankhuc {
     width: 100%;
     height: auto;
     padding: 0 20px;
     display: flex;
     margin-top: 20px;
 }
-.textlpk{
+
+.textlpk {
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
 }
-.phankhuc{
+
+.phankhuc {
     width: fit-content;
     border-radius: 10px;
     background-color: rgb(226, 226, 226);
@@ -32,16 +37,87 @@
     padding: 10px;
     font-size: 16px;
 }
-.phankhuc:hover{
+
+.phankhuc:hover {
     transform: scale(1.03);
+    cursor: pointer;
 }
-.select{
+
+.select {
     background-color: rgb(0, 153, 255);
-    color: whitesmoke
+    color: whitesmoke;
+    border-color: rgb(0, 153, 255);
+}
+
+/* Active filter tags */
+.active-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 20px;
+    margin-top: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}
+
+.active-filters-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-right: 5px;
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: #e8f0fe;
+    color: #1a73e8;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.filter-tag button {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.filter-tag button:hover {
+    color: #d32f2f;
+}
+
+.clear-all-btn {
+    background: none;
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.clear-all-btn:hover {
+    background: #d32f2f;
+    color: white;
+}
+
+.textlpk i {
+    margin-right: 5px;
 }
 
 
-.chuyentrang{
+.chuyentrang {
     margin: 0;
     display: flex;
     align-items: center;
@@ -49,22 +125,25 @@
     margin-top: 30px;
     margin-bottom: 15px;
 }
-.boxso{
+
+.boxso {
     background-color: white;
     width: 40px;
     height: 40px;
     border-radius: 10px;
     margin-right: 15px;
 }
-.boxso :hover{
-    color:gray;
+
+.boxso :hover {
+    color: gray;
 }
-.boxso a{
+
+.boxso a {
     text-decoration: none;
 }
-.so{
+
+.so {
     font-size: 16px;
     margin-top: 10px;
     margin-left: 12px;
 }
-

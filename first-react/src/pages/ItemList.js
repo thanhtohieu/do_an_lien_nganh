@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { itemAPI } from "../APIs/APIs";
 import "../css/ItemList.css";
 
-function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, category = null, search = "" }) {
+function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, category = null, search = "", brand = null }) {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -53,11 +53,21 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
                     data = data.filter((item) => item.price >= giathap && item.price <= giacao);
                 }
 
-                // Xếp giá
+                // Lọc theo thương hiệu
+                if (brand) {
+                    const brandLower = brand.toLowerCase();
+                    data = data.filter((item) => item.name.toLowerCase().includes(brandLower));
+                }
+
+                // Sắp xếp
                 if (sapxep === "giatang") {
                     data.sort((a, b) => a.price - b.price);
                 } else if (sapxep === "giagiam") {
                     data.sort((a, b) => b.price - a.price);
+                } else if (sapxep === "tenAZ") {
+                    data.sort((a, b) => a.name.localeCompare(b.name, 'vi'));
+                } else if (sapxep === "tenZA") {
+                    data.sort((a, b) => b.name.localeCompare(a.name, 'vi'));
                 }
 
                 setItems(data);
@@ -66,26 +76,34 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
             }
         };
         fetchItems();
-    }, [rows, sapxep, giathap, giacao, category, search]); // Cập nhật khi props thay đổi
+    }, [rows, sapxep, giathap, giacao, category, search, brand]); // Cập nhật khi props thay đổi
 
     return (
         <div className="sanphamtuongtu">
-            <ul className="laptop-list" >
-                {items.map((item) => (
-                    <li key={item.id} className="sptt">
-                        <a href={`/ChitietSanpham/${item.id}`}>
-                            <div className="img">
-                                <img alt={item.name} src={item.images[0]} />
-                            </div>
-                            <div className="title">
-                                <h4>{item.name}</h4>
-                                <p>{item.price.toLocaleString("vi-VN")} đ</p>
-                                <span>Xem ngay!</span>
-                            </div>
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            {items.length === 0 ? (
+                <div style={{ textAlign: 'center', padding: '40px 20px', color: '#999' }}>
+                    <i className="fas fa-box-open" style={{ fontSize: '48px', marginBottom: '15px', display: 'block' }}></i>
+                    <p style={{ fontSize: '16px' }}>Không tìm thấy sản phẩm nào phù hợp.</p>
+                    <p style={{ fontSize: '14px' }}>Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm.</p>
+                </div>
+            ) : (
+                <ul className="laptop-list">
+                    {items.map((item) => (
+                        <li key={item.id} className="sptt">
+                            <a href={`/ChitietSanpham/${item.id}`}>
+                                <div className="img">
+                                    <img alt={item.name} src={item.images[0]} />
+                                </div>
+                                <div className="title">
+                                    <h4>{item.name}</h4>
+                                    <p>{item.price.toLocaleString("vi-VN")} đ</p>
+                                    <span>Xem ngay!</span>
+                                </div>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };

@@ -1,0 +1,518 @@
+/* ============================================
+   RESPONSIVE DESIGN - All Components
+   ============================================ */
+
+/* ====== TABLET (max-width: 1024px) ====== */
+@media (max-width: 1024px) {
+
+    /* --- Header --- */
+    .header {
+        height: auto !important;
+        flex-direction: column !important;
+        padding: 10px 0;
+    }
+
+    .logo {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 5px 0;
+    }
+
+    #logo {
+        height: 60px !important;
+    }
+
+    .main-header {
+        width: 100% !important;
+    }
+
+    .top-header {
+        flex-direction: row;
+        align-items: center;
+        padding: 5px 15px;
+        gap: 10px;
+    }
+
+    .left-top-header {
+        flex-basis: 60% !important;
+    }
+
+    .left-top-header>form>input {
+        width: 100% !important;
+        max-width: 250px;
+    }
+
+    .bottom-header {
+        flex-wrap: wrap;
+        padding: 5px 15px;
+        gap: 5px;
+    }
+
+    .left-bottom-header,
+    .right-bottom-header {
+        flex-basis: 100% !important;
+        justify-content: center !important;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .left-bottom-header a,
+    .right-bottom-header a {
+        font-size: 13px;
+        padding: 3px 8px;
+    }
+
+    .headerFake {
+        height: 220px !important;
+    }
+
+    /* --- Product Grid --- */
+    .laptop-list {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+    }
+
+    /* --- Product Detail --- */
+    .main {
+        margin: 0 5vw !important;
+    }
+
+    .thongtinsanpham {
+        flex-direction: column !important;
+    }
+
+    .left,
+    .right {
+        flex-basis: 100% !important;
+    }
+
+    .right {
+        margin-top: 20px;
+    }
+
+    /* --- Filter bar --- */
+    .locphankhuc {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .phankhuc {
+        font-size: 13px !important;
+        padding: 7px 10px !important;
+    }
+
+    /* --- DanhmucSanpham --- */
+    .mainsp {
+        margin: 0px 5% !important;
+    }
+
+    /* --- Homepage sections --- */
+    .khungsp1 {
+        flex-wrap: wrap;
+        height: auto !important;
+    }
+
+    .sp1,
+    .sp3 {
+        flex-basis: 48%;
+        height: auto !important;
+        margin-bottom: 7px;
+    }
+
+    .bantincongnghe {
+        flex-wrap: wrap;
+        height: auto !important;
+    }
+
+    .bt1 {
+        flex-basis: 48%;
+        height: auto !important;
+        margin-bottom: 10px;
+    }
+
+    /* --- Checkout --- */
+    .locdanhgia {
+        margin-right: 5vw !important;
+        flex-wrap: wrap;
+    }
+
+    .locdanhgia>ul {
+        width: 100% !important;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .cmt>input {
+        width: 60vw !important;
+    }
+}
+
+/* ====== MOBILE (max-width: 768px) ====== */
+@media (max-width: 768px) {
+
+    /* --- Header --- */
+    .header {
+        height: auto !important;
+        flex-direction: column !important;
+        padding: 8px 0;
+    }
+
+    .logo {
+        width: 100% !important;
+        padding: 5px 0;
+    }
+
+    #logo {
+        height: 50px !important;
+    }
+
+    .main-header {
+        width: 100% !important;
+    }
+
+    .top-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 5px 10px;
+        gap: 8px;
+    }
+
+    .left-top-header {
+        flex-basis: 100% !important;
+    }
+
+    .left-top-header>form {
+        display: flex;
+        width: 100%;
+    }
+
+    .left-top-header>form>input {
+        width: 100% !important;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .right-top-header {
+        flex-basis: 100% !important;
+        justify-content: center !important;
+        gap: 15px;
+    }
+
+    .bottom-header {
+        flex-direction: column !important;
+        align-items: center;
+        padding: 5px 10px;
+    }
+
+    .left-bottom-header {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        gap: 3px;
+    }
+
+    .right-bottom-header {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        gap: 3px;
+    }
+
+    .left-bottom-header a,
+    .right-bottom-header a {
+        font-size: 12px !important;
+        padding: 2px 6px;
+    }
+
+    .headerFake {
+        height: 280px !important;
+    }
+
+    /* --- Cart sidebar --- */
+    .cart {
+        width: 100vw !important;
+    }
+
+    /* --- Product Grid --- */
+    .laptop-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .title>h4 {
+        font-size: 13px !important;
+    }
+
+    .title>p {
+        font-size: 15px !important;
+    }
+
+    .title>span {
+        font-size: 12px !important;
+    }
+
+    /* --- Product Detail --- */
+    .main {
+        margin: 0 3vw !important;
+    }
+
+    .thongtinsanpham {
+        flex-direction: column !important;
+        padding: 10px !important;
+    }
+
+    .left,
+    .right {
+        flex-basis: 100% !important;
+        width: 100% !important;
+    }
+
+    .hinhanh>div>img {
+        height: 250px !important;
+    }
+
+    .khuyenmai {
+        flex-direction: column !important;
+        gap: 30px;
+    }
+
+    .quatang,
+    .baohanh {
+        flex-basis: 100% !important;
+    }
+
+    .muahang>div {
+        flex-direction: column !important;
+    }
+
+    .muahang>div>div {
+        flex-basis: 100% !important;
+        height: auto !important;
+        padding: 15px !important;
+    }
+
+    .now>a,
+    .monthly>a {
+        position: relative !important;
+        width: 100% !important;
+        margin-top: 10px;
+    }
+
+    .now>p {
+        position: relative !important;
+        transform: none !important;
+        right: auto !important;
+        top: auto !important;
+    }
+
+    .ketquadanhgia {
+        flex-direction: column !important;
+    }
+
+    .tongdanhgia,
+    .chitietdanhgia {
+        flex-basis: 100% !important;
+    }
+
+    .locdanhgia {
+        flex-direction: column !important;
+        margin-right: 0 !important;
+        gap: 10px;
+    }
+
+    .locdanhgia>ul {
+        width: 100% !important;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: flex-start !important;
+        padding: 0;
+    }
+
+    .cmt>input {
+        width: 70vw !important;
+    }
+
+    #user-cmt {
+        padding-right: 3vw !important;
+    }
+
+    /* --- DanhmucSanpham --- */
+    .mainsp {
+        margin: 0px 3% !important;
+    }
+
+    .locphankhuc {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0 10px !important;
+    }
+
+    .textlpk {
+        width: 100%;
+        font-size: 14px !important;
+        margin-bottom: 3px;
+    }
+
+    .phankhuc {
+        font-size: 12px !important;
+        padding: 6px 8px !important;
+        margin-left: 0 !important;
+    }
+
+    .active-filters {
+        flex-wrap: wrap;
+        padding: 10px !important;
+    }
+
+    /* --- Login / Register --- */
+    .dangnhap {
+        width: 90% !important;
+        max-width: 350px;
+    }
+
+    .s1 {
+        margin-left: 5% !important;
+    }
+
+    /* --- Footer --- */
+    .top {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .top>div.logo {
+        width: 100% !important;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .footer,
+    .footer1,
+    .footer2 {
+        width: 100% !important;
+        flex-direction: column;
+    }
+
+    .footer1,
+    .footer2 {
+        height: auto !important;
+        margin-bottom: 15px;
+    }
+
+    /* --- Homepage sections --- */
+    .khungsp1 {
+        flex-direction: column;
+        height: auto !important;
+    }
+
+    .sp1,
+    .sp3 {
+        width: 100%;
+        height: auto !important;
+        margin-bottom: 7px;
+    }
+
+    .bantincongnghe {
+        flex-direction: column;
+        height: auto !important;
+    }
+
+    .bt1 {
+        width: 100%;
+        height: auto !important;
+        margin-bottom: 10px;
+    }
+
+    .binhmain1,
+    .binhmain3,
+    .binhtraimain3 {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .binhmain3 {
+        flex-direction: column !important;
+    }
+
+    .binhphaimain3 {
+        width: 100% !important;
+        height: auto !important;
+        margin-left: 0 !important;
+        margin-top: 15px;
+    }
+
+    .thanhtieude1,
+    .thanhtieude2 {
+        width: 100% !important;
+    }
+
+    .logocacnhanhang {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nhanhang {
+        width: 80px !important;
+        height: 50px !important;
+    }
+}
+
+/* ====== SMALL MOBILE (max-width: 480px) ====== */
+@media (max-width: 480px) {
+
+    /* --- Header compact --- */
+    #logo {
+        height: 40px !important;
+    }
+
+    .headerFake {
+        height: 300px !important;
+    }
+
+    .left-top-header>form>button {
+        width: 50px !important;
+        font-size: 12px;
+    }
+
+    /* --- Product Grid 1 column --- */
+    .laptop-list {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    .sptt {
+        padding: 8px !important;
+    }
+
+    /* --- Login form smaller --- */
+    .dangnhap {
+        width: 95% !important;
+        padding: 15px !important;
+    }
+
+    .dangnhap h1 {
+        font-size: 20px !important;
+    }
+
+    .dangnhap input {
+        margin: 10px !important;
+    }
+
+    /* --- Filter buttons smaller --- */
+    .phankhuc {
+        font-size: 11px !important;
+        padding: 5px 6px !important;
+    }
+
+    /* --- Product detail image --- */
+    .hinhanh>div>img {
+        height: 200px !important;
+    }
+
+    .list-img {
+        height: 60px !important;
+    }
+
+    .vote {
+        padding: 20px !important;
+    }
+}

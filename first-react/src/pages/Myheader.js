@@ -1,4 +1,5 @@
 import './../css/header.css';
+import './../css/responsive.css';
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { itemAPI, userAPI } from "../APIs/APIs";

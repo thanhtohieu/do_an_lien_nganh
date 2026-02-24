@@ -130,9 +130,11 @@ const FullPageSection = () => {
                 </div>
                 <div className="may">
                     <div className="may1">
-                        <img alt="" src="./images/acer1.png" />
+                        <a href="/ChitietSanpham/11">
+                            <img alt="" src="./images/acer1.png" />
+                        </a>
                         <div className="txtmay1">
-                            <a href="">
+                            <a href="/ChitietSanpham/11">
                                 Acer Predator Helios Neo 2023 PHN16-71-50JG (Core i5-13500HX,
                                 16GB, 512GB, RTX 4050 6GB, 16" FHD+ 165Hz)
                             </a>
@@ -141,13 +143,15 @@ const FullPageSection = () => {
                             <img alt="" src="./images/giaacer1.png" />
                         </div>
                         <div className="tuychon1">
-                            <a href="">Tùy chọn</a>
+                            <a href="/ChitietSanpham/11">Tùy chọn</a>
                         </div>
                     </div>
                     <div className="may2">
-                        <img alt="" src="./images/acer2.png" />
+                        <a href="/ChitietSanpham/12">
+                            <img alt="" src="./images/acer2.png" />
+                        </a>
                         <div className="txtmay2">
-                            <a href="">
+                            <a href="/ChitietSanpham/12">
                                 Laptop Gaming Acer Nitro 5 2021 AN515-57-5700 (Core i5 - 11400H,
                                 16GB, 512GB, RTX3050Ti, 15.6'' FHD IPS 144Hz)
                             </a>
@@ -156,13 +160,15 @@ const FullPageSection = () => {
                             <img alt="" src="./images/giaacer2.png" />
                         </div>
                         <div className="tuychon2">
-                            <a href="">Tùy chọn</a>
+                            <a href="/ChitietSanpham/12">Tùy chọn</a>
                         </div>
                     </div>
                     <div className="may3">
-                        <img alt="" src="./images/dell1.png" />
+                        <a href="/ChitietSanpham/13">
+                            <img alt="" src="./images/dell1.png" />
+                        </a>
                         <div className="txtmay3">
-                            <a href="">
+                            <a href="/ChitietSanpham/13">
                                 Dell Inspiron 14 Plus 7430 (Core i7-13620H, 16GB, 1TB, Intel
                                 Graphics, 14" 2.5K)
                             </a>
@@ -171,13 +177,15 @@ const FullPageSection = () => {
                             <img alt="" src="./images/giadell1.png" />
                         </div>
                         <div className="tuychon3">
-                            <a href="">Tùy chọn</a>
+                            <a href="/ChitietSanpham/13">Tùy chọn</a>
                         </div>
                     </div>
                     <div className="may4">
-                        <img alt="" src="./images/dell2.png" />
+                        <a href="/ChitietSanpham/14">
+                            <img alt="" src="./images/dell2.png" />
+                        </a>
                         <div className="txtmay4">
-                            <a href="">
+                            <a href="/ChitietSanpham/14">
                                 Dell Inspiron 14 Plus 7430 (Core i7-13620H, 16GB, 1TB, Intel
                                 Graphics, 14" 2.5K)
                             </a>
@@ -186,7 +194,7 @@ const FullPageSection = () => {
                             <img alt="" src="./images/giadell2.png" />
                         </div>
                         <div className="tuychon4">
-                            <a href="">Tùy chọn</a>
+                            <a href="/ChitietSanpham/14">Tùy chọn</a>
                         </div>
                     </div>
                 </div>

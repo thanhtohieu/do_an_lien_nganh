@@ -66,7 +66,29 @@ const KiemTraDonHang = () => {
         }
     };
 
+    const handleCancelOrder = async (orderId, e) => {
+        e.stopPropagation();
+        const reason = window.prompt("Vui lòng nhập lý do hủy đơn hàng:");
+        if (reason === null) return; // User cancelled the prompt
+        if (reason.trim() === "") {
+            alert("Bạn cần phải nhập lý do để hủy đơn hàng!");
+            return;
+        }
 
+        if (window.confirm("Bạn có chắc chắn muốn hủy đơn hàng này không?")) {
+            try {
+                await orderAPI.patch(`/${orderId}`, {
+                    status: 'cancelled',
+                    cancelReason: reason
+                });
+                alert("Đã hủy đơn hàng thành công!");
+                loadOrders(); // Refresh list
+            } catch (err) {
+                console.error("Lỗi khi hủy đơn hàng:", err);
+                alert("Đã xảy ra lỗi khi hủy đơn hàng, vui lòng thử lại sau.");
+            }
+        }
+    };
 
     const formatDate = (dateStr) => {
         const d = new Date(dateStr);
@@ -208,9 +230,21 @@ const KiemTraDonHang = () => {
                         </div>
 
                         {/* Total Summary */}
-                        <div className="ktdh-order-total-bar">
-                            <span>Tổng thanh toán:</span>
-                            <span className="ktdh-final-total">{order.totalPrice?.toLocaleString("vi-VN")}₫</span>
+                        <div className="ktdh-order-total-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div className="ktdh-order-actions">
+                                {(order.status === 'pending' || order.status === 'confirmed') && (
+                                    <button
+                                        onClick={(e) => handleCancelOrder(order.id, e)}
+                                        style={{ background: '#e74c3c', color: 'white', border: 'none', padding: '10px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}
+                                    >
+                                        <i className="fas fa-ban"></i> Hủy đơn hàng
+                                    </button>
+                                )}
+                            </div>
+                            <div>
+                                <span style={{ marginRight: '10px' }}>Tổng thanh toán:</span>
+                                <span className="ktdh-final-total">{order.totalPrice?.toLocaleString("vi-VN")}₫</span>
+                            </div>
                         </div>
                     </div>
                 )}

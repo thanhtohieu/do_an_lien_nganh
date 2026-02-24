@@ -179,84 +179,18 @@
 }
 
 /* Hover effects */
-.binh1:hover img {
-    opacity: 0;
+.binh1 img,
+.binh2 img,
+.binh3 img,
+.binh4 img {
+    transition: transform 0.3s ease-in-out;
 }
 
-.binh2:hover img {
-    opacity: 0;
-}
-
-.binh3:hover img {
-    opacity: 0;
-}
-
+.binh1:hover img,
+.binh2:hover img,
+.binh3:hover img,
 .binh4:hover img {
-    opacity: 0;
-}
-
-/* Background images for hover */
-.binh1::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binh1-1.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.binh2::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binh2-1.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.binh3::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binh3-1.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.binh4::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binh4-1.jpg");
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.binh1:hover::after,
-.binh2:hover::after,
-.binh3:hover::after,
-.binh4:hover::after {
-    opacity: 1;
+    transform: scale(1.05);
 }
 
 .boxbinhtong2-1 a {
@@ -410,70 +344,18 @@
     margin-top: 20px;
 }
 
+.binhcuoi1 img,
+.binhcuoi2 img,
+.binhcuoi3 img,
+.binhcuoi4 img {
+    transition: transform 0.3s ease-in-out;
+}
+
 .binhcuoi1:hover img,
 .binhcuoi2:hover img,
 .binhcuoi3:hover img,
 .binhcuoi4:hover img {
-    opacity: 0;
-}
-
-.binhcuoi1::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binht4-1.jpg");
-    background-size: cover;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.binhcuoi2::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binht3-1.jpg");
-    background-size: cover;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.binhcuoi3::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binht2-1.jpg");
-    background-size: cover;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.binhcuoi4::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../public/images/binht1-1.jpg");
-    background-size: cover;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.binhcuoi1:hover::after,
-.binhcuoi2:hover::after,
-.binhcuoi3:hover::after,
-.binhcuoi4:hover::after {
-    opacity: 1;
+    transform: scale(1.05);
 }
 
 /* ========== MarketingSection - Voucher Cards ========== */

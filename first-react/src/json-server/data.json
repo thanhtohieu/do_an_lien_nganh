@@ -224,6 +224,94 @@
         "https://cdn2.cellphones.com.vn/x/media/catalog/product/i/n/in_the_box_14_inch__cla7biqzxe6a_large_3.jpg",
         "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/k/e/keyboard_14_inch__bjo3gj8bnogi_large_3.jpg"
       ]
+    },
+    {
+      "id": "11",
+      "name": "Acer Predator Helios Neo 2023 PHN16-71-50JG (Core i5-13500HX, 16GB, 512GB, RTX 4050 6GB, 16\" FHD+ 165Hz)",
+      "price": 25490000,
+      "originalPrice": 30890000,
+      "discountPercent": 18,
+      "monthly": 2549000,
+      "remain": 10,
+      "cpu": "Intel Core i5-13500HX",
+      "ram": "16GB DDR5 4800MHz",
+      "drive": "512GB PCIe NVMe SSD",
+      "card": "NVIDIA GeForce RTX 4050 6GB",
+      "screen": "16\" WUXGA (1920 x 1200) 165Hz, sRGB 100%",
+      "camera": "720p HD",
+      "port": "USB 3.2, USB Type-C (Thunderbolt 4), HDMI 2.1",
+      "weight": "2.6 kg",
+      "pin": "4-cell 90Whr",
+      "system": "Windows 11 Home",
+      "images": [
+        "/images/acer1.png"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Laptop Gaming Acer Nitro 5 2021 AN515-57-5700 (Core i5 - 11400H, 16GB, 512GB, RTX3050Ti, 15.6'' FHD IPS 144Hz)",
+      "price": 15990000,
+      "originalPrice": 18990000,
+      "discountPercent": 16,
+      "monthly": 1599000,
+      "remain": 15,
+      "cpu": "Intel Core i5-11400H",
+      "ram": "16GB DDR4 3200MHz",
+      "drive": "512GB PCIe NVMe SSD",
+      "card": "NVIDIA GeForce RTX 3050Ti 4GB",
+      "screen": "15.6\" FHD (1920 x 1080) IPS 144Hz",
+      "camera": "720p HD",
+      "port": "USB 3.2, USB Type-C, HDMI 2.1",
+      "weight": "2.2 kg",
+      "pin": "4-cell 57.5Whr",
+      "system": "Windows 11 Home",
+      "images": [
+        "/images/acer2.png"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Dell Inspiron 14 Plus 7430 (Core i7-13620H, 16GB, 1TB, Intel Graphics, 14\" 2.5K)",
+      "price": 19590000,
+      "originalPrice": 27990000,
+      "discountPercent": 30,
+      "monthly": 1959000,
+      "remain": 5,
+      "cpu": "Intel Core i7-13620H",
+      "ram": "16GB LPDDR5 4800MHz",
+      "drive": "1TB PCIe NVMe SSD",
+      "card": "Intel Iris Xe Graphics",
+      "screen": "14.0\" 2.5K (2560 x 1600) Anti-Glare Non-Touch 300nits WVA",
+      "camera": "1080p FHD",
+      "port": "Thunderbolt 4, USB 3.2 Gen 1 Type-A, HDMI 2.0",
+      "weight": "1.66 kg",
+      "pin": "4-cell 64Whr",
+      "system": "Windows 11 Home",
+      "images": [
+        "/images/dell1.png"
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Dell Inspiron 14 Plus 7430 (Core i7-13620H, 16GB, 1TB, Intel Graphics, 14\" 2.5K) - Version 2",
+      "price": 25890000,
+      "originalPrice": 35990000,
+      "discountPercent": 28,
+      "monthly": 2589000,
+      "remain": 12,
+      "cpu": "Intel Core i7-13620H",
+      "ram": "16GB LPDDR5 4800MHz",
+      "drive": "1TB PCIe NVMe SSD",
+      "card": "Intel Iris Xe Graphics",
+      "screen": "14.0\" 2.5K (2560 x 1600)",
+      "camera": "1080p FHD",
+      "port": "Thunderbolt 4, USB 3.2, HDMI",
+      "weight": "1.66 kg",
+      "pin": "4-cell 64Whr",
+      "system": "Windows 11 Home",
+      "images": [
+        "/images/dell2.png"
+      ]
     }
   ],
   "orders": [
@@ -388,8 +476,9 @@
       "originalPrice": 30680000,
       "couponCode": "GIAM10PHAN",
       "discount": 2000000,
-      "status": "pending",
-      "createdAt": "2026-02-24T15:05:57.243Z"
+      "status": "cancelled",
+      "createdAt": "2026-02-24T15:05:57.243Z",
+      "cancelReason": "không đủ tiền"
     }
   ],
   "coupons": [

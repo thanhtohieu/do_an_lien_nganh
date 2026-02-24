@@ -5,6 +5,11 @@ import '../css/DanhmucSanpham.css'
 import Footer from "./Footer"
 import ItemList from "./ItemList"
 const DanhmucSanpham = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search") || "";
+  const categoryParam = searchParams.get("category") || "";
+
   const [sapxep, setSapxep] = useState();
   const [giathap, setGiathap] = useState(null);
   const [giacao, setGiacao] = useState(null);
@@ -31,6 +36,12 @@ const DanhmucSanpham = () => {
       <Myheader />
       <div className="khungmainsp">
         <div className="mainsp">
+          {searchQuery && (
+            <div style={{ padding: '10px 20px', fontSize: '16px', color: '#333' }}>
+              <i className="fas fa-search" style={{ marginRight: '8px', color: '#1a73e8' }}></i>
+              Kết quả tìm kiếm cho: <strong>"{searchQuery}"</strong>
+            </div>
+          )}
           <div className="locphankhuc">
             <div className="textlpk">Chọn khoảng giá:</div>
             <button onClick={() => chonKhoangGia(null, null, "pk0")} className="phankhuc"  >Tất cả</button>
@@ -48,7 +59,7 @@ const DanhmucSanpham = () => {
             <button className="phankhuc">Tên A - Z</button>
           </div>
           <div>
-            <ItemList rows={0} sapxep={sapxep} giathap={giathap} giacao={giacao} category={new URLSearchParams(useLocation().search).get("category")} />
+            <ItemList rows={0} sapxep={sapxep} giathap={giathap} giacao={giacao} category={categoryParam} search={searchQuery} />
           </div>
 
           <div className="chuyentrang">

@@ -9,6 +9,7 @@ function Myheader() {
   const [user, setUser] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Load user from localStorage and sync cart from server
   const refreshUser = async () => {
@@ -112,8 +113,8 @@ function Myheader() {
           <div className='main-header'>
             <div className="top-header">
               <div className="left-top-header">
-                <form>
-                  <input type="text" placeholder="Tìm kiếm sản phẩm..."></input>
+                <form onSubmit={(e) => { e.preventDefault(); if (searchQuery.trim()) navigate(`/DanhmucSanpham?search=${encodeURIComponent(searchQuery.trim())}`); }}>
+                  <input type="text" placeholder="Tìm kiếm sản phẩm..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}></input>
                   <button type="submit"><i className="fas fa-search"></i> Tìm</button>
                 </form>
               </div>

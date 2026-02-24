@@ -2,7 +2,7 @@ import React from 'react';
 
 const NewsSection = () => {
     return (
-        <div className="Quan">
+        <div className="news-section-wrapper">
             <div className="thanhtieude2">
                 <div className="tentieude2">Bản tin công nghệ</div>
                 <div className="thanhdoc" />
@@ -18,7 +18,7 @@ const NewsSection = () => {
                         <img className="news-image" alt="" src="./images/tin1.jpg" />
                     </div>
                     <div className="news-content">
-                        <a href="" style={{ textDecoration: 'none' }}>
+                        <a href="">
                             <div className="news-title">
                                 Cách xử lý đồng hồ bị vào nước, hấp hơi nước cực đơn giản tại nhà
                             </div>
@@ -39,7 +39,7 @@ const NewsSection = () => {
                         <img className="news-image" alt="" src="./images/tin2.jpg" />
                     </div>
                     <div className="news-content">
-                        <a href="" style={{ textDecoration: 'none' }}>
+                        <a href="">
                             <div className="news-title">
                                 Realme toàn cầu đạt top 7 và 35 triệu người dùng
                             </div>
@@ -61,7 +61,7 @@ const NewsSection = () => {
                         <img className="news-image" alt="" src="./images/tin3.webp" />
                     </div>
                     <div className="news-content">
-                        <a href="" style={{ textDecoration: 'none' }}>
+                        <a href="">
                             <div className="news-title">
                                 Tổng hợp đánh giá CPU Intel Core Ultra: Nhanh mạnh, bền bỉ, cân kèo Apple lẫn AMD
                             </div>
@@ -82,7 +82,7 @@ const NewsSection = () => {
                         <img className="news-image" alt="" src="./images/tin4.jpg" />
                     </div>
                     <div className="news-content">
-                        <a href="" style={{ textDecoration: 'none' }}>
+                        <a href="">
                             <div className="news-title">
                                 Cách gập màn hình laptop mà không tắt máy Win 11, Win 10
                             </div>

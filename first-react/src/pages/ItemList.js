@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { itemAPI } from "../APIs/APIs";
 import "../css/ItemList.css";
 
-function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, category = null }) {
+function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, category = null, search = "" }) {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -42,6 +42,12 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
                     });
                 }
 
+                // Lọc theo từ khóa tìm kiếm
+                if (search) {
+                    const searchLower = search.toLowerCase();
+                    data = data.filter((item) => item.name.toLowerCase().includes(searchLower));
+                }
+
                 //Lọc giá
                 if (giathap !== null && giacao !== null) {
                     data = data.filter((item) => item.price >= giathap && item.price <= giacao);
@@ -60,7 +66,7 @@ function ItemList({ rows = 0, sapxep = null, giathap = null, giacao = null, cate
             }
         };
         fetchItems();
-    }, [rows, sapxep, giathap, giacao, category]); // Cập nhật khi props thay đổi
+    }, [rows, sapxep, giathap, giacao, category, search]); // Cập nhật khi props thay đổi
 
     return (
         <div className="sanphamtuongtu">

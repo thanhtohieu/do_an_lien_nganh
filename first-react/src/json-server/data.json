@@ -74,6 +74,15 @@
       "numberphone": "012345",
       "email": "12345@gmail.com",
       "password": "12345"
+    },
+    {
+      "id": "admin1",
+      "name": "Admin",
+      "numberphone": "0123456789",
+      "email": "admin@shop.com",
+      "password": "admin123",
+      "role": "admin",
+      "cart": []
     }
   ],
   "items": [
@@ -292,7 +301,7 @@
         }
       ],
       "totalPrice": 40070000,
-      "status": "pending",
+      "status": "confirmed",
       "createdAt": "2026-02-18T08:14:37.991Z"
     },
     {
@@ -341,7 +350,7 @@
         }
       ],
       "totalPrice": 138359000,
-      "status": "pending",
+      "status": "delivered",
       "createdAt": "2026-02-18T09:06:08.066Z"
     }
   ]

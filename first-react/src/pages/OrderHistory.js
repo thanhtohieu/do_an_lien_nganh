@@ -44,8 +44,12 @@ const OrderHistory = () => {
 
         const fetchOrders = async () => {
             try {
-                const res = await orderAPI.get(`?userId=${stored.id}&_sort=createdAt&_order=desc`);
-                setOrders(res.data);
+                const res = await orderAPI.get('/');
+                // json-server v1 không hỗ trợ query filter → lọc client-side
+                const myOrders = res.data
+                    .filter(o => o.userId === stored.id)
+                    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                setOrders(myOrders);
             } catch (err) {
                 console.error('Lỗi tải đơn hàng:', err);
             }

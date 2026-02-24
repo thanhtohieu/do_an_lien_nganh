@@ -34,11 +34,12 @@ function Dangky({ onLogin }) {
     }
 
     try {
-      // Kiểm tra email đã tồn tại chưa bằng query parameter
-      const response = await userAPI.get(`/?email=${email}`);
+      // Kiểm tra email đã tồn tại chưa (lấy tất cả user rồi tìm client-side)
+      const response = await userAPI.get('/');
       const existingUsers = response.data;
+      const emailExists = existingUsers.find(u => u.email === email);
 
-      if (existingUsers.length > 0) {
+      if (emailExists) {
         alert("Email đã tồn tại, không thể tạo tài khoản!");
         return;
       }

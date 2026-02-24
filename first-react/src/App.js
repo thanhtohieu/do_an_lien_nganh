@@ -17,7 +17,12 @@ import KiemTraDonHang from "./pages/KiemTraDonHang";
 import ThanhToan from "./pages/ThanhToan";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
-import OrderHistory from "./pages/OrderHistory";
+
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminProducts from "./pages/admin/AdminProducts";
+import AdminOrders from "./pages/admin/AdminOrders";
+import AdminUsers from "./pages/admin/AdminUsers";
 const App = () => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
@@ -48,7 +53,14 @@ const App = () => {
         <Route path="/KiemTraDonHang" element={<KiemTraDonHang />} />
         <Route path="/ThanhToan" element={<ThanhToan />} />
         <Route path="/Profile" element={<Profile />} />
-        <Route path="/OrderHistory" element={<OrderHistory />} />
+
+        {/* Admin routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="users" element={<AdminUsers />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

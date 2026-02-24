@@ -15,22 +15,32 @@ function Dangnhap({ onLogin }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Sử dụng query params để tìm user có email và password khớp
-      const response = await userAPI.get(`/?email=${email}&password=${password}`);
+      // json-server v1 không hỗ trợ query filter → lấy tất cả rồi tìm client-side
+      const response = await userAPI.get('/');
       const users = response.data;
+      const foundUser = users.find(
+        (u) => u.email === email && u.password === password
+      );
 
-      if (users.length > 0) {
-        const foundUser = users[0];
-        // Lưu cả email và name vào localStorage
+      if (foundUser) {
+        // Lưu cả email, name và role vào localStorage
         localStorage.setItem("user", JSON.stringify({
           email: foundUser.email,
           name: foundUser.name,
           id: foundUser.id,
-          cart: foundUser.cart || [] // Nếu cart chưa có, đặt mặc định là []
+          role: foundUser.role || "user",
+          cart: foundUser.cart || []
         }));
         onLogin(foundUser);
-        alert("Chào mừng trở lại " + foundUser.name)
-        navigate("/");
+
+        // Admin → redirect đến trang quản trị
+        if (foundUser.role === "admin") {
+          alert("Chào mừng Admin " + foundUser.name);
+          navigate("/admin");
+        } else {
+          alert("Chào mừng trở lại " + foundUser.name);
+          navigate("/");
+        }
       } else {
         setError("Sai thông tin đăng nhập");
       }
